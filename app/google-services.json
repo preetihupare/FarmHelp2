@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "429152983772",
+    "project_id": "farmhelp-bc29a",
+    "storage_bucket": "farmhelp-bc29a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:429152983772:android:145999a237f820d3c5f219",
+        "android_client_info": {
+          "package_name": "com.ynot.farmhelp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "429152983772-045sbvfolls5orunnd5t7t84mlqibktt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ynot.farmhelp",
+            "certificate_hash": "54ee6f5dcd2a8807bfeeb78ef5674f8c116b78dc"
+          }
+        },
+        {
+          "client_id": "429152983772-ohlbf38vhmlick295rf6kqneknnok7v8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNUX8x-NdYlDDmqhlr-3JzYRrOdRcYXZ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "429152983772-ohlbf38vhmlick295rf6kqneknnok7v8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

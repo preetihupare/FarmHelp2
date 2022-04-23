@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/drawable-ldpi/background_border.xml" value="0.1605" />
+        <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/drawable-ldpi/btn_rounded_disabled.xml" value="0.1" />
         <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/drawable/rounded_corner.xml" value="0.2155" />
+        <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/layout/activity_main.xml" value="0.2" />
       </map>
     </option>

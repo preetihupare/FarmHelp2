@@ -1,4 +1,4 @@
-package com.androtechbuddy.farmhelp;
+package com.ynot.farmhelp;
 
 import org.junit.Test;
 
