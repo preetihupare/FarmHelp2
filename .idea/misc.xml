@@ -5,18 +5,11 @@
       <map>
         <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/drawable-ldpi/background_border.xml" value="0.1605" />
         <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/drawable-ldpi/btn_rounded_disabled.xml" value="0.1" />
+        <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/drawable/custom_button.xml" value="0.1605" />
         <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/drawable/rounded_corner.xml" value="0.2155" />
+        <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/layout/activity_home_page.xml" value="0.176" />
         <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/drawable-ldpi/background_border.xml" value="0.131" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/drawable-ldpi/btn_rounded.xml" value="0.131" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/drawable-ldpi/btn_rounded_disabled.xml" value="0.131" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/drawable/custom_button.xml" value="0.131" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.131" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/drawable/rounded_corner.xml" value="0.131" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/layout/activity_home_page.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/layout/activity_login.xml" value="0.264" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
