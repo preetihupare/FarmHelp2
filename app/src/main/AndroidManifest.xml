@@ -10,6 +10,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FarmHelp">
         <activity
+            android:name=".ContactUs"
+            android:exported="false" />
+        <activity
+            android:name=".Pestisides"
+            android:exported="false" />
+        <activity
+            android:name=".Care"
+            android:exported="false" />
+        <activity
+            android:name=".Wether"
+            android:exported="false" />
+        <activity
+            android:name=".Stock"
+            android:exported="false" />
+        <activity
+            android:name=".Market"
+            android:exported="false" />
+        <activity
+            android:name=".MyFarm"
+            android:exported="false" />
+        <activity
+            android:name=".Register"
+            android:exported="false" />
+        <activity
+            android:name=".HomePage"
+            android:exported="false" />
+        <activity
+            android:name=".Harvest"
+            android:exported="false" />
+        <activity
             android:name=".Login"
             android:exported="false" />
         <activity
