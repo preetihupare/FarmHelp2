@@ -67,6 +67,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:orientation="vertical"
+                            android:id="@+id/my_farm"
 
                             >
 
@@ -92,6 +93,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:orientation="vertical"
+                            android:id="@+id/market"
 
                             >
 
@@ -129,6 +131,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/harvest"
                     android:layout_row="0"
                     android:layout_rowWeight="1"
                     android:layout_column="0"
@@ -171,6 +174,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/stock"
                     android:layout_row="0"
                     android:layout_rowWeight="1"
                     android:layout_column="1"
@@ -211,6 +215,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/weather"
                     android:layout_row="1"
                     android:layout_rowWeight="1"
                     android:layout_column="0"
@@ -249,6 +254,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/care"
                     android:layout_row="1"
                     android:layout_rowWeight="1"
                     android:layout_column="1"
@@ -282,10 +288,11 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-
+<!--                pesticides-->
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/pesticides"
                     android:layout_row="2"
                     android:layout_rowWeight="1"
                     android:layout_column="0"
@@ -319,9 +326,11 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+<!--                contact us-->
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/contact_us"
                     android:layout_row="2"
                     android:layout_rowWeight="1"
                     android:layout_column="1"
@@ -359,6 +368,7 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
+                android:id="@+id/logout"
                 android:layout_height="35dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"

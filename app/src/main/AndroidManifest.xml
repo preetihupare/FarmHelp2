@@ -13,13 +13,13 @@
             android:name=".ContactUs"
             android:exported="false" />
         <activity
-            android:name=".Pestisides"
+            android:name=".Pesticides"
             android:exported="false" />
         <activity
             android:name=".Care"
             android:exported="false" />
         <activity
-            android:name=".Wether"
+            android:name=".Weather"
             android:exported="false" />
         <activity
             android:name=".Stock"
