@@ -16,4 +16,6 @@
     <color name="grey_60">#666666</color>
     <color name="grey_40">#999999</color>
     <color name="red_300">#E57373</color>
+    <color name="milk_bg">#F6FBEF</color>
+    <color name="green_txt">#4CAF50</color>
 </resources>

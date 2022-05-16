@@ -7,26 +7,14 @@
         <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/drawable-ldpi/btn_rounded_disabled.xml" value="0.1" />
         <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/drawable/custom_button.xml" value="0.1605" />
         <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/drawable/rounded_corner.xml" value="0.2155" />
+        <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/layout/activity_care.xml" value="0.25" />
+        <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/layout/activity_contact_us.xml" value="0.25" />
         <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/layout/activity_home_page.xml" value="0.176" />
         <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/layout/activity_my_farm.xml" value="0.25" />
         <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/layout/activity_register.xml" value="0.25" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/drawable-ldpi/background_border.xml" value="0.131" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/drawable-ldpi/btn_rounded.xml" value="0.131" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/drawable-ldpi/btn_rounded_disabled.xml" value="0.131" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/drawable/custom_button.xml" value="0.131" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/layout/activity_care.xml" value="0.20863616930312098" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/layout/activity_contact_us.xml" value="0.20863616930312098" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/layout/activity_harvest.xml" value="0.20863616930312098" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/layout/activity_home_page.xml" value="0.20863616930312098" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/layout/activity_login.xml" value="0.20863616930312098" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/layout/activity_main.xml" value="0.20863616930312098" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/layout/activity_market.xml" value="0.20863616930312098" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/layout/activity_my_farm.xml" value="0.20863616930312098" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/layout/activity_pestisides.xml" value="0.20863616930312098" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/layout/activity_register.xml" value="0.20863616930312098" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/layout/activity_stock.xml" value="0.20863616930312098" />
-        <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/layout/activity_weather.xml" value="0.20863616930312098" />
+        <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/layout/activity_stock.xml" value="0.25" />
       </map>
     </option>
   </component>
