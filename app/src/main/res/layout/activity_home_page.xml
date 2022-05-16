@@ -352,7 +352,7 @@
                         <ImageView
                             android:layout_width="55dp"
                             android:layout_height="55dp"
-                            android:src="@drawable/contact_us"></ImageView>
+                            android:src="@drawable/contact_us" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -360,7 +360,7 @@
                             android:text="Contact Us"
                             android:textAlignment="center"
                             android:textSize="15sp"
-                            android:textStyle="bold"></TextView>
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -376,7 +376,8 @@
                 android:background="@drawable/rounded_corner"
                 android:text="Logout"
                 android:textAlignment="center"
-                android:textSize="12sp"></androidx.appcompat.widget.AppCompatButton>
+                android:onClick="logout"
+                android:textSize="12sp" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
