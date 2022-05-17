@@ -32,6 +32,8 @@ public class Login extends AppCompatActivity {
     FirebaseAuth fAuth;
     private FirebaseUser mCurrentUser;
 
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,9 +55,16 @@ public class Login extends AppCompatActivity {
                 String email = mEmail.getText().toString().trim();
                 String password = mPassword.getText().toString().trim();
 
+
                 if(TextUtils.isEmpty(email)){
                     mEmail.setError("Email is Required.");
                     return;
+                }
+
+                if(!TextUtils.isEmpty(email)) {
+                    if (!email.matches(emailPattern)) {
+                        Toast.makeText(getApplicationContext(), "Invalid email address", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
                 if(TextUtils.isEmpty(password)){
@@ -64,7 +73,7 @@ public class Login extends AppCompatActivity {
                 }
 
                 if(password.length() < 6){
-                    mPassword.setError("Password Must be >= 6 Characters");
+                    mPassword.setError("Password must contains minimum 6 Characters");
                     return;
                 }
 

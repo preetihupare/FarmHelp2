@@ -102,7 +102,7 @@ public class Register extends AppCompatActivity {
         //Select City Spinner
         select_city  = (Spinner) findViewById(R.id.select_city);
         List<String> list_city = new ArrayList<String>();
-        list_city.add("Select Market");
+        list_city.add("Select City");
         list_city.add("Kolhapur");
         list_city.add("Sangli");
         list_city.add("Satara");
@@ -203,6 +203,13 @@ public class Register extends AppCompatActivity {
                 if(TextUtils.isEmpty(email)){
                     mEmail.setError("Email is Required.");
                     return;
+                }
+
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                if(!TextUtils.isEmpty(email)) {
+                    if (!email.matches(emailPattern)) {
+                        Toast.makeText(getApplicationContext(), "Invalid email address", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
                 if(phone.isEmpty()){
