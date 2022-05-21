@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:backgroundTint="@color/milk_bg">
 
 
 
@@ -22,7 +23,7 @@
                 android:id="@+id/imageView11"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                app:srcCompat="@drawable/city3"
+                app:srcCompat="@drawable/login"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="15dp"/>
@@ -33,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:text="Welcome Back"
                 android:textAlignment="center"
-                android:textColor="@color/purple_200"
+                android:textColor="@color/black"
                 android:textSize="25sp"
                 android:layout_marginTop="20dp"/>
 
@@ -89,9 +90,9 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/btn_rounded"
+                android:background="@drawable/rounded_corner"
                 android:text="Login"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/black"
                 android:textSize="13sp"
                 android:layout_gravity="center"/>
 
@@ -101,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="New Here ?  Create Account"
-                android:textColor="@color/purple_200"
+                android:textColor="@color/black"
                 android:layout_gravity="center"/>
 
             <TextView
@@ -109,7 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Forgot Password ?"
-                android:textColor="@color/purple_200"
+                android:textColor="@color/green_txt"
                 android:textStyle="bold"
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"/>

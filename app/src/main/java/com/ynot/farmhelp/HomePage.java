@@ -8,12 +8,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.view.View;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class HomePage extends AppCompatActivity {
 
     LinearLayout myFarm, market;
     CardView harvest, stock, weather, care, pesticides, contactUs;
     Button logout;
+    FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
+    String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +35,9 @@ public class HomePage extends AppCompatActivity {
         pesticides = findViewById(R.id.pesticides);
         contactUs = findViewById(R.id.contact_us);
         logout = findViewById(R.id.logout);
+
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
 
         myFarm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,13 +110,15 @@ public class HomePage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomePage.this, Login.class);
-                startActivity(intent);
-            }
-        });
+    }
+    public void logout(View view) {
+        FirebaseAuth.getInstance().signOut();//logout
+        Intent i =new Intent(getApplicationContext(),Login.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.putExtra("EXIT", true);
+        startActivity(i);
+        finish();
     }
 }
