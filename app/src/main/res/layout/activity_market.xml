@@ -26,7 +26,7 @@
         <ImageView
             android:layout_width="428dp"
             android:layout_height="300dp"
-            android:src="@drawable/Market"></ImageView>
+            android:src="@drawable/city4"></ImageView>
 
     </LinearLayout>
     <LinearLayout
@@ -66,7 +66,7 @@
             android:layout_width="25dp"
             android:layout_height="20dp"
             android:layout_marginStart="20dp"
-            android:src="@drawable/Tomato"></ImageView>
+            android:src="@drawable/tomato"></ImageView>
 
         <TextView
             android:layout_width="wrap_content"
@@ -99,7 +99,7 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginStart="20dp"
-            android:src="@drawable/Onin"></ImageView>
+            android:src="@drawable/onion"></ImageView>
 
         <TextView
             android:layout_width="wrap_content"

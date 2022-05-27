@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomePage">
+    tools:context=".HomePage"
+    android:background="@drawable/background">
 
 
     <ScrollView
@@ -44,7 +45,7 @@
                     android:layout_gravity="fill"
                     android:layout_margin="40dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="25dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="10dp"
 
@@ -139,7 +140,7 @@
                     android:layout_gravity="fill"
                     android:layout_margin="40dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="25dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="10dp"
 
@@ -182,7 +183,7 @@
                     android:layout_gravity="fill"
                     android:layout_margin="40dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="25dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="10dp"
 
@@ -223,7 +224,7 @@
                     android:layout_gravity="fill"
                     android:layout_margin="40dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="25dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="10dp">
 
@@ -262,7 +263,7 @@
                     android:layout_gravity="fill"
                     android:layout_margin="40dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="25dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="10dp">
 
@@ -300,7 +301,7 @@
                     android:layout_gravity="fill"
                     android:layout_margin="40dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="25dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="10dp">
 
@@ -338,7 +339,7 @@
                     android:layout_gravity="fill"
                     android:layout_margin="40dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="25dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="10dp">
 
