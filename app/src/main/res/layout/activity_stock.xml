@@ -103,7 +103,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="20dp"
-                android:src="@drawable/onion_img"></ImageView>
+                android:src="@drawable/onion"></ImageView>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -136,7 +136,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="20dp"
-                android:src="@drawable/potato_img"></ImageView>
+                android:src="@drawable/potato"></ImageView>
 
             <TextView
                 android:layout_width="wrap_content"
