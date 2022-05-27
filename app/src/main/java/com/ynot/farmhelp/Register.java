@@ -4,10 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -30,6 +33,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -42,8 +46,6 @@ public class Register extends AppCompatActivity {
     public static final String TAG = "TAG";
     Spinner select_soil, select_crop, select_market, select_city;
     String selected_crop, selected_market,selected_city,selected_soil;
-
-    private View parent_view;
 
     EditText mFullName, mEmail, mPassword, mPhone, mFarmArea, mFarmLocation;
     Button mRegisterBtn;
@@ -76,103 +78,361 @@ public class Register extends AppCompatActivity {
         }
 
         //Select Crop Spinner
+
+//        List<String> list_crop = new ArrayList<String>();
+//        list_crop.add("Select Crop");
+//        list_crop.add("Tomato");
+//        list_crop.add("Onion");
+//        list_crop.add("Potato");
+//
+//        ArrayAdapter<String> arrayCrop = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list_crop);
+//        arrayCrop.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        select_crop.setAdapter(arrayCrop);
+//        select_crop.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long i) {
+//                select_crop.setSelection(position);
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
+
         select_crop = (Spinner) findViewById(R.id.select_crop);
-        List<String> list_crop = new ArrayList<String>();
-        list_crop.add("Select Crop");
-        list_crop.add("Tomato");
-        list_crop.add("Onion");
-        list_crop.add("Potato");
+        // Initializing a String Array
+        String[] list_crop = new String[]{
+                "Select Crop",
+                "Tomato",
+                "Onion",
+                "Potato"
+        };
 
-        ArrayAdapter<String> arrayCrop = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list_crop);
-        arrayCrop.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        select_crop.setAdapter(arrayCrop);
-        select_crop.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long i) {
-                select_crop.setSelection(position);
-            }
+        final List<String> cropList = new ArrayList<>(Arrays.asList(list_crop));
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+        {
+            // Initializing an ArrayAdapter
+            final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,R.layout.spinner_item,list_crop){
+                @Override
+                public boolean isEnabled(int position){
+                    if(position == 0)
+                    {
+                        // Disable the first item from Spinner
+                        // First item will be use for hint
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                @Override
+                public View getDropDownView(int position, View convertView,
+                                            ViewGroup parent) {
+                    View view = super.getDropDownView(position, convertView, parent);
+                    TextView tv = (TextView) view;
+                    if(position == 0){
+                        // Set the hint text color gray
+                        tv.setTextColor(Color.GRAY);
+                    }
+                    else {
+                        tv.setTextColor(Color.BLACK);
+                    }
+                    return view;
+                }
+            };
 
-            }
-        });
-        selected_crop = select_crop.getSelectedItem().toString();
+            spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
+            select_crop.setAdapter(spinnerArrayAdapter);
+
+            select_crop.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String selectedItemText = (String) parent.getItemAtPosition(position);
+                    // If user change the default selection
+                    // First item is disable and it is used for hint
+
+                }
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+        };
+
+//        selected_crop = select_crop.getSelectedItem().toString();
+
+        ////-------------------------------////
 
         //Select City Spinner
+
+//        List<String> list_city = new ArrayList<String>();
+//        list_city.add("Select City");
+//        list_city.add("Kolhapur");
+//        list_city.add("Sangli");
+//        list_city.add("Satara");
+//        ArrayAdapter<String> arrayCity = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list_city);
+//        arrayCity.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        select_city.setAdapter(arrayCity);
+//        select_city.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long i) {
+//                select_city.setSelection(position);
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
+
         select_city  = (Spinner) findViewById(R.id.select_city);
-        List<String> list_city = new ArrayList<String>();
-        list_city.add("Select City");
-        list_city.add("Kolhapur");
-        list_city.add("Sangli");
-        list_city.add("Satara");
-        ArrayAdapter<String> arrayCity = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list_city);
-        arrayCity.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        select_city.setAdapter(arrayCity);
-        select_city.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long i) {
-                select_city.setSelection(position);
-            }
+        // Initializing a String Array
+        String[] list_city = new String[]{
+                "Select City",
+                "Kolhapur",
+                "Sangli",
+                "Satara"
+        };
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+        final List<String> cityList = new ArrayList<>(Arrays.asList(list_city));
 
-            }
-        });
-        selected_city = this.select_city.getSelectedItem().toString();
+        {
+            // Initializing an ArrayAdapter
+            final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,R.layout.spinner_item,list_city){
+                @Override
+                public boolean isEnabled(int position){
+                    if(position == 0)
+                    {
+                        // Disable the first item from Spinner
+                        // First item will be use for hint
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                @Override
+                public View getDropDownView(int position, View convertView,
+                                            @NonNull ViewGroup parent) {
+                    View view = super.getDropDownView(position, convertView, parent);
+                    TextView tv = (TextView) view;
+                    if(position == 0){
+                        // Set the hint text color gray
+                        tv.setTextColor(Color.GRAY);
+                    }
+                    else {
+                        tv.setTextColor(Color.BLACK);
+                    }
+                    return view;
+                }
+            };
+
+            spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
+            select_city.setAdapter(spinnerArrayAdapter);
+
+            select_city.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String selectedItemText = (String) parent.getItemAtPosition(position);
+                    // If user change the default selection
+                    // First item is disable and it is used for hint
+
+                }
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+        };
+
+//        selected_city = this.select_city.getSelectedItem().toString();
+
+        ////-------------------------------////
 
         //Select Market Spinner
         select_market = (Spinner) findViewById(R.id.select_market);
-        List<String> list_market = new ArrayList<String>();
-        list_market.add("Select Market");
-        list_market.add("Kolhapur");
-        list_market.add("Sangli");
-        list_market.add("Satara");
-        ArrayAdapter<String> arrayMarket = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list_market);
-        arrayMarket.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        select_market.setAdapter(arrayMarket);
-        select_market.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long i) {
-                select_market.setSelection(position);
-            }
+        // Initializing a String Array
+        String[] list_market = new String[]{
+                "Select Market",
+                "Kolhapur",
+                "Sangli",
+                "Satara"
+        };
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+        final List<String> marketList = new ArrayList<>(Arrays.asList(list_market));
 
-            }
-        });
-        selected_market = this.select_market.getSelectedItem().toString();
+//        List<String> list_market = new ArrayList<String>();
+//        list_market.add("Select Market");
+//        list_market.add("Kolhapur");
+//        list_market.add("Sangli");
+//        list_market.add("Satara");
+//        ArrayAdapter<String> arrayMarket = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list_market);
+//        arrayMarket.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        select_market.setAdapter(arrayMarket);
+       // select_market.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+//        {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long i) {
+//                select_market.setSelection(position);
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+        {
+            // Initializing an ArrayAdapter
+            final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,R.layout.spinner_item,list_market){
+                @Override
+                public boolean isEnabled(int position){
+                    if(position == 0)
+                    {
+                        // Disable the first item from Spinner
+                        // First item will be use for hint
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                @Override
+                public View getDropDownView(int position, View convertView,
+                                            ViewGroup parent) {
+                    View view = super.getDropDownView(position, convertView, parent);
+                    TextView tv = (TextView) view;
+                    if(position == 0){
+                        // Set the hint text color gray
+                        tv.setTextColor(Color.GRAY);
+                    }
+                    else {
+                        tv.setTextColor(Color.BLACK);
+                    }
+                    return view;
+                }
+            };
+
+            spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
+            select_market.setAdapter(spinnerArrayAdapter);
+
+            select_market.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String selectedItemText = (String) parent.getItemAtPosition(position);
+                    // If user change the default selection
+                    // First item is disable and it is used for hint
+
+                }
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+        };
+
+//        selected_market = this.select_market.getSelectedItem().toString();
+
+        ////-------------------------------////
 
         //Select Soil
+
+//        List<String> list_soil = new ArrayList<String>();
+//        list_soil.add("Select Soil");
+//        list_soil.add("Alluvial Soil");
+//        list_soil.add("Regur or Black Soil");
+//        list_soil.add("Red Soil");
+//        list_soil.add("Laterite Soil");
+//        list_soil.add("Desert Soil");
+//        list_soil.add("Mountain Soil");
+//
+//        ArrayAdapter<String> arraySoil = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list_soil);
+//        arraySoil.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        select_soil.setAdapter(arraySoil);
+//        select_soil.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long i) {
+//                select_soil.setSelection(position);
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
+
         select_soil = (Spinner) findViewById(R.id.select_soil);
-        List<String> list_soil = new ArrayList<String>();
-        list_soil.add("Select Soil");
-        list_soil.add("Alluvial Soil");
-        list_soil.add("Regur or Black Soil");
-        list_soil.add("Red Soil");
-        list_soil.add("Laterite Soil");
-        list_soil.add("Desert Soil");
-        list_soil.add("Mountain Soil");
+        // Initializing a String Array
+        String[] list_soil = new String[]{
+                "Select Soil",
+                "Alluvial Soil",
+                "Regur or Black Soil",
+                "Red Soil",
+                "Laterite Soil",
+                "Desert Soil",
+                "Mountain Soil"
+        };
 
-        ArrayAdapter<String> arraySoil = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list_soil);
-        arraySoil.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        select_soil.setAdapter(arraySoil);
-        select_soil.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long i) {
-                select_soil.setSelection(position);
-            }
+        final List<String> soilList = new ArrayList<>(Arrays.asList(list_soil));
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+        {
+            // Initializing an ArrayAdapter
+            final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,R.layout.spinner_item,list_soil){
+                @Override
+                public boolean isEnabled(int position){
+                    if(position == 0)
+                    {
+                        // Disable the first item from Spinner
+                        // First item will be use for hint
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                @Override
+                public View getDropDownView(int position, View convertView,
+                                            ViewGroup parent) {
+                    View view = super.getDropDownView(position, convertView, parent);
+                    TextView tv = (TextView) view;
+                    if(position == 0){
+                        // Set the hint text color gray
+                        tv.setTextColor(Color.GRAY);
+                    }
+                    else {
+                        tv.setTextColor(Color.BLACK);
+                    }
+                    return view;
+                }
+            };
 
-            }
-        });
-        selected_soil = this.select_soil.getSelectedItem().toString();
+            spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
+            select_soil.setAdapter(spinnerArrayAdapter);
 
-        parent_view = findViewById(android.R.id.content);
+            select_soil.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String selectedItemText = (String) parent.getItemAtPosition(position);
+                    // If user change the default selection
+                    // First item is disable and it is used for hint
+
+                }
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+        };
+
+//        selected_soil = this.select_soil.getSelectedItem().toString();
+
+
+
+
+        View parent_view = findViewById(android.R.id.content);
         mRegisterBtn = findViewById(R.id.registerBtn);
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -189,6 +449,7 @@ public class Register extends AppCompatActivity {
                 final  String crop_Name = select_crop.getSelectedItem().toString();
                 final  String soilName = select_soil.getSelectedItem().toString();
 
+                String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
 
                 //Date And Time
                 Date date = Calendar.getInstance().getTime();
@@ -205,17 +466,37 @@ public class Register extends AppCompatActivity {
                     return;
                 }
 
-                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
                 if(!TextUtils.isEmpty(email)) {
-                    if (!email.matches(emailPattern)) {
-                        Toast.makeText(getApplicationContext(), "Invalid email address", Toast.LENGTH_SHORT).show();
+                    EditText email1 = (EditText) findViewById(R.id.email);
+                    if (!Patterns.EMAIL_ADDRESS.matcher(email1.getText().toString()).matches()) {
+                        mEmail.setError("Invalid Email Address");
+                        return;
                     }
                 }
+
 
                 if(phone.isEmpty()){
                     mPhone.setError("Mobile Number is Required");
                     return;
                 }
+
+                if(!TextUtils.isEmpty(phone)) {
+                    EditText phone1 = (EditText) findViewById(R.id.phone);
+                    if (!Patterns.PHONE.matcher(phone1.getText().toString()).matches()) {
+                        mPhone.setError("Invalid Mobile Number");
+                        return;
+                    }
+                }
+
+                if(farmArea.isEmpty()){
+                    mFarmArea.setError("Farm Area is Required");
+                    return;
+                }
+
+//                if(farmLocation.isEmpty()){
+//                    mFarmLocation.setError("Farm Location is Required");
+//                    return;
+//                }
 
                 if(TextUtils.isEmpty(password)){
                     mPassword.setError("Password is Required.");
