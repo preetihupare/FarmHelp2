@@ -39,8 +39,8 @@
             ></TextView>
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_below="@id/temp"
             android:id="@id/conditions"
             android:layout_centerHorizontal="true"

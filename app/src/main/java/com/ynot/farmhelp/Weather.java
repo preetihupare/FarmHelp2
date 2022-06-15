@@ -44,10 +44,11 @@ public class Weather extends AppCompatActivity {
 
     private RelativeLayout home;
     private ProgressBar loading;
-    private TextView cityName, temperature, condition;
+    private TextView cityName, temperature, condition, humidity, sunrise, sunset, cloud;
+    private TextView windSpeed, maxWindSpeed, maxTemp, isRain;
     private TextInputEditText editCity;
     private ImageView background, search, tempStatus;
-    private RecyclerView weather;
+    private RecyclerView weather, weather1;
     private ArrayList<WeatherModel> weatherModelArrayList;
     private WeatherAdapter weatherAdapter;
     private LocationManager locationManager;
@@ -67,6 +68,14 @@ public class Weather extends AppCompatActivity {
         cityName = findViewById(R.id.cityName);
         temperature = findViewById(R.id.temperature);
         condition = findViewById(R.id.condition);
+        humidity = findViewById(R.id.humidity);
+        cloud = findViewById(R.id.cloud);
+        sunrise = findViewById(R.id.sunrise);
+        sunrise = findViewById(R.id.sunset);
+        windSpeed = findViewById(R.id.windSpeed);
+        maxWindSpeed = findViewById(R.id.maxWindSpeed);
+        maxTemp = findViewById(R.id.maxTemp);
+        isRain = findViewById(R.id.isRain);
         weather = findViewById(R.id.recycler);
         editCity = findViewById(R.id.editCity);
         background = findViewById(R.id.background);
@@ -84,18 +93,20 @@ public class Weather extends AppCompatActivity {
             ActivityCompat.requestPermissions(Weather.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PERMISSION_CODE);
         }
 
-        Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        //Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
         //Location location = getLastKnownLocation();
 
-        if (location != null){CityName = getCityName(location.getLongitude(),location.getLatitude());
-            getWeatherInfo(CityName);
-        } else {
-            CityName = "Kolhapur";
-            getWeatherInfo(CityName);
-        }
+//        if (location != null){CityName = getCityName(location.getLongitude(),location.getLatitude());
+//            getWeatherInfo(CityName);
+//        } else {
+//            CityName = "Kolhapur";
+//
+//        }
+        CityName = "Kolhapur";
+        getWeatherInfo(CityName);
 
-//        CityName = getCityName(location.getLongitude(), location.getLatitude());
-//        getWeatherInfo(CityName);
+        //CityName = getCityName(location.getLongitude(), location.getLatitude());
+        //getWeatherInfo(CityName);
 
 
 
@@ -179,14 +190,14 @@ public class Weather extends AppCompatActivity {
     }
 
     private void getWeatherInfo(String CityName) {
-        String url = "http://api.weatherapi.com/v1/forecast.json?key=b38afc7b188742ca9fc184606222005&q=" + CityName + "&days=1&aqi=yes&alerts=yes";
+        String url = "https://api.weatherapi.com/v1/forecast.json?key=b38afc7b188742ca9fc184606222005&q=" + CityName + "&days=1&aqi=yes&alerts=yes";
         cityName.setText(CityName);
         RequestQueue requestQueue = Volley.newRequestQueue(Weather.this);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                loading.setVisibility(View.GONE);
+                loading.setVisibility(View.VISIBLE);
                 home.setVisibility(View.VISIBLE);
                 weatherModelArrayList.clear();
 
@@ -196,19 +207,50 @@ public class Weather extends AppCompatActivity {
                     int isDay = response.getJSONObject("current").getInt("is_day");
                     String condi = response.getJSONObject("current").getJSONObject(("condition")).getString("text");
                     String conditionIcon = response.getJSONObject("current").getJSONObject("condition").getString("icon");
-                    Picasso.get().load("http:".concat(conditionIcon)).into(tempStatus);
+                    Picasso.get().load("https:".concat(conditionIcon)).into(tempStatus);
                     condition.setText(condi);
+
                     if( isDay == 1 ) {
-                        Picasso.get().load("https://img.freepik.com/free-photo/view-blue-sky-cloud-nature-background_1150-27965.jpg?t=st=1653101489~exp=1653102089~hmac=1a99155a618e96f6053c1a7b6e347c1a52be4ea2cc7ad2abc452deab622c5957&w=996").into(background);
+                        Picasso.get().load("https://img.freepik.com/free-photo/clouds-sky_53876-33576.jpg?t=st=1655051939~exp=1655052539~hmac=1086a960522da315a87faa944dde58a6425f4b313e5d19784da923a27c4d0df3&w=996.jpg").into(background);
                     }
                     else {
-                        Picasso.get().load("https://img.freepik.com/free-photo/sunset_1127-3503.jpg?w=360&t=st=1653101430~exp=1653102030~hmac=ed06fdbe5530548e99de6abeca5a2c529b4e4615e9e80845a84a4f9f0deff79d").into(background);
+                        Picasso.get().load("https://images.pexels.com/photos/3812773/pexels-photo-3812773.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1.jpg").into(background);
                     }
+                    String humid = response.getJSONObject("current").getString("humidity");
+                    humidity.setText((humid+ "%"));
+
+                    String clou = response.getJSONObject("current").getString("cloud");
+                    cloud.setText((clou+ "%"));
+
+                    String windSp = response.getJSONObject("current").getString("wind_kph");
+                    windSpeed.setText((windSp + "kph"));
 
                     //to get forecast
                     JSONObject forecastObj = response.getJSONObject("forecast");
                     JSONObject forcastO = forecastObj.getJSONArray("forecastday").getJSONObject(0);
+                    JSONObject astro = forcastO.getJSONObject("astro");
+                    JSONObject day = forcastO.getJSONObject("day");
                     JSONArray hourArray = forcastO.getJSONArray("hour");
+
+                    String sunri = astro.getString("sunrise");
+                    sunrise.setText(sunri);
+
+                    String sunse = astro.getString("sunset");
+                    sunrise.setText(sunse);
+
+                    String maxWindSp = day.getString("maxwind_kph");
+                    maxWindSpeed.setText((maxWindSp + "kph"));
+
+                    String maxTem = day.getString("maxtemp_c");
+                    maxTemp.setText((maxTem+"℃"));
+
+                    int isRaining = day.getInt("daily_will_it_rain");
+                    if ( isRaining == 1 ) {
+                        isRain.setText("YES");
+                    }
+                    else {
+                        isRain.setText("NO");
+                    }
 
                     for ( int i=0; i<hourArray.length(); i++ ) {
                         JSONObject hourObj = hourArray.getJSONObject(i);
@@ -229,7 +271,7 @@ public class Weather extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(Weather.this, "Please Enter valid city name..", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Weather.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 

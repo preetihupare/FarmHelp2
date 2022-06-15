@@ -1,6 +1,7 @@
 package com.ynot.farmhelp;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +39,16 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
     //to fetch data from api
     @Override
     public void onBindViewHolder(@NonNull WeatherAdapter.ViewHolder holder, int position) {
+
+//            int images[] = {R.drawable.morning2, R.drawable.night3};
+//
+//            if ( position >= 6 && position <= 17 ) {
+//                holder.itemView.setBackgroundResource(images[0]);
+//            }
+//            else {
+//                holder.itemView.setBackgroundResource(images[1]);
+//            }
+
 
         WeatherModel modal = weatherModelArrayList.get(position);
         holder.temp.setText(modal.getTemperature() + "℃");
