@@ -3,18 +3,28 @@ package com.ynot.farmhelp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 
 public class Harvest extends AppCompatActivity {
 
-    TextView harvestDate, expectedDate, cropName, monthDemand, nextMonthDemand, remainingDemand;
+    Spinner selectCrop;
+    TextView cropName, monthDemand, nextMonthDemand, remainingDemand, enterData;
+    EditText harvestDate, expectedDate;
     ImageView calendarImage, calendarImage2, tomato, onion, potato, cropImage;
     DatePickerDialog.OnDateSetListener setListener;
 
@@ -35,6 +45,66 @@ public class Harvest extends AppCompatActivity {
         monthDemand = findViewById(R.id.monthDemand);
         nextMonthDemand = findViewById(R.id.nextMonthDemand);
         remainingDemand = findViewById(R.id.remainingDemand);
+        enterData = findViewById(R.id.enterData);
+
+        selectCrop = (Spinner) findViewById(R.id.selectCrop);
+        // Initializing a String Array
+        String[] listCrop = new String[]{
+                "Select Crop",
+                "Tomato",
+                "Onion",
+                "Potato"
+        };
+
+        final List<String> cropList = new ArrayList<>(Arrays.asList(listCrop));
+
+            // Initializing an ArrayAdapter
+            final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,R.layout.spinner_item,listCrop){
+                @Override
+                public boolean isEnabled(int position){
+                    if(position == 0)
+                    {
+                        // Disable the first item from Spinner
+                        // First item will be use for hint
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                @Override
+                public View getDropDownView(int position, View convertView,
+                                            ViewGroup parent) {
+                    View view = super.getDropDownView(position, convertView, parent);
+                    TextView tv = (TextView) view;
+                    if(position == 0){
+                        // Set the hint text color gray
+                        tv.setTextColor(Color.GRAY);
+                    }
+                    else {
+                        tv.setTextColor(Color.BLACK);
+                    }
+                    return view;
+                }
+            };
+
+            spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
+            selectCrop.setAdapter(spinnerArrayAdapter);
+
+            selectCrop.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String selectedItemText = (String) parent.getItemAtPosition(position);
+                    // If user change the default selection
+                    // First item is disable and it is used for hint
+
+                }
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
 
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
