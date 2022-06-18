@@ -48,6 +48,10 @@ public class Harvest extends AppCompatActivity {
         enterData = findViewById(R.id.enterData);
 
         selectCrop = (Spinner) findViewById(R.id.selectCrop);
+
+        //images array
+        int images[] = {R.drawable.tomato, R.drawable.onion, R.drawable.potato};
+
         // Initializing a String Array
         String[] listCrop = new String[]{
                 "Select Crop",
@@ -58,78 +62,100 @@ public class Harvest extends AppCompatActivity {
 
         final List<String> cropList = new ArrayList<>(Arrays.asList(listCrop));
 
-            // Initializing an ArrayAdapter
-            final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,R.layout.spinner_item,listCrop){
-                @Override
-                public boolean isEnabled(int position){
-                    if(position == 0)
-                    {
-                        // Disable the first item from Spinner
-                        // First item will be use for hint
-                        return false;
-                    }
-                    else
-                    {
-                        return true;
-                    }
+        // Initializing an ArrayAdapter
+        final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,R.layout.spinner_item,listCrop){
+            @Override
+            public boolean isEnabled(int position){
+                if(position == 0)
+                {
+                    // Disable the first item from Spinner
+                    // First item will be use for hint
+                    return false;
                 }
-                @Override
-                public View getDropDownView(int position, View convertView,
-                                            ViewGroup parent) {
-                    View view = super.getDropDownView(position, convertView, parent);
-                    TextView tv = (TextView) view;
-                    if(position == 0){
-                        // Set the hint text color gray
-                        tv.setTextColor(Color.GRAY);
-                    }
-                    else {
-                        tv.setTextColor(Color.BLACK);
-                    }
-                    return view;
+                else
+                {
+                    return true;
                 }
-            };
-
-            spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
-            selectCrop.setAdapter(spinnerArrayAdapter);
-
-            selectCrop.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    String selectedItemText = (String) parent.getItemAtPosition(position);
-                    // If user change the default selection
-                    // First item is disable and it is used for hint
-
+            }
+            @Override
+            public View getDropDownView(int position, View convertView,
+                                        ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView tv = (TextView) view;
+                if(position == 0){
+                    // Set the hint text color gray
+                    tv.setTextColor(Color.GRAY);
                 }
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
+                else {
+                    tv.setTextColor(Color.BLACK);
                 }
-            });
+                return view;
+            }
+        };
+
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
+        selectCrop.setAdapter(spinnerArrayAdapter);
+
+        selectCrop.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItemText = (String) parent.getItemAtPosition(position);
+
+                if ( position == 1 ) {
+                    cropImage.setImageResource(images[0]);
+                    cropName.setText("Tomato");
+                    monthDemand.setText("50891/Qtls");
+                    nextMonthDemand.setText("42561/Qtls");
+                    remainingDemand.setText("8330/Qtls");
+                }
+                else if ( position == 2 ){
+                    cropImage.setImageResource(images[1]);
+                    cropName.setText("Onion");
+                    monthDemand.setText("105754/Qtls");
+                    nextMonthDemand.setText("55780/Qtls");
+                    remainingDemand.setText("12543/Qtls");
+                }
+                else if ( position == 3 ) {
+                    cropImage.setImageResource(images[2]);
+                    cropName.setText("Potato");
+                    monthDemand.setText("99540/Qtls");
+                    nextMonthDemand.setText("48560/Qtls");
+                    remainingDemand.setText("10642/Qtls");
+                }
+                // If user change the default selection
+                // First item is disable and it is used for hint
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        int images[] = {R.drawable.tomato, R.drawable.onion, R.drawable.potato};
 
 
-        harvestDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(Harvest.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int day) {
-                        month = month + 1;
-                        String date = day + "/" + month + "/" + year;
-                        harvestDate.setText(date);
 
-
-                    }
-                }, year, month, day);
-                datePickerDialog.show();
-            }
-        });
+//        harvestDate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                DatePickerDialog datePickerDialog = new DatePickerDialog(Harvest.this, new DatePickerDialog.OnDateSetListener() {
+//                    @Override
+//                    public void onDateSet(DatePicker view, int year, int month, int day) {
+//                        month = month + 1;
+//                        String date = day + "/" + month + "/" + year;
+//                        harvestDate.setText(date);
+//
+//
+//                    }
+//                }, year, month, day);
+//                datePickerDialog.show();
+//            }
+//        });
 
         calendarImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,22 +174,22 @@ public class Harvest extends AppCompatActivity {
             }
         });
 
-        expectedDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(Harvest.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int day) {
-                        month = month + 1;
-                        String date = day + "/" + month + "/" + year;
-                        expectedDate.setText(date);
-
-
-                    }
-                }, year, month, day);
-                datePickerDialog.show();
-            }
-        });
+//        expectedDate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                DatePickerDialog datePickerDialog = new DatePickerDialog(Harvest.this, new DatePickerDialog.OnDateSetListener() {
+//                    @Override
+//                    public void onDateSet(DatePicker view, int year, int month, int day) {
+//                        month = month + 1;
+//                        String date = day + "/" + month + "/" + year;
+//                        expectedDate.setText(date);
+//
+//
+//                    }
+//                }, year, month, day);
+//                datePickerDialog.show();
+//            }
+//        });
 
         calendarImage2.setOnClickListener(new View.OnClickListener() {
             @Override

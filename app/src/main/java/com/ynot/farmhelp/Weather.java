@@ -86,6 +86,9 @@ public class Weather extends AppCompatActivity {
         //set adapter to recycleView
         weather.setAdapter(weatherAdapter);
 
+        loading.setVisibility(View.VISIBLE);
+        home.setVisibility(View.GONE);
+
 
         //to fetch live location and to check location access permissions
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -190,7 +193,7 @@ public class Weather extends AppCompatActivity {
     }
 
     private void getWeatherInfo(String CityName) {
-        String url = "https://api.weatherapi.com/v1/forecast.json?key=b38afc7b188742ca9fc184606222005&q=" + CityName + "&days=1&aqi=yes&alerts=yes";
+        String url = "https://api.weatherapi.com/v1/forecast.json?key=7ac5bee01cf749cbb34191911221706&q=" + CityName + "&days=1&aqi=yes&alerts=yes";
         cityName.setText(CityName);
         RequestQueue requestQueue = Volley.newRequestQueue(Weather.this);
 
