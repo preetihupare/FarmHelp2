@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyFarm"
+    tools:context=".MyData"
     android:orientation="vertical">
     <ScrollView
         android:layout_width="match_parent"
@@ -73,12 +73,15 @@
                         android:layout_marginRight="20dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="text"
-                            android:hint="Enter Full Name"
-                            android:id="@+id/farmer_name"/>
+                            android:text="Full Name"
+                            android:layout_marginBottom="15dp"
+                            android:textSize="16sp"
+                            android:id="@+id/fname"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -90,12 +93,15 @@
                         android:layout_marginTop="5dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="text"
-                            android:hint="Enter Mobile"
-                            android:id="@+id/mobile_number"/>
+                            android:text="Mobile Number"
+                            android:layout_marginBottom="15dp"
+                            android:textSize="16sp"
+                            android:id="@+id/f_number"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -108,23 +114,37 @@
                         android:layout_marginTop="5dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="text"
-                            android:hint="Enter Email Address"
-                            android:id="@+id/email_address"/>
+                            android:text="Email Address"
+                            android:layout_marginBottom="15dp"
+                            android:textSize="16sp"
+                            android:id="@+id/f_email"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
 
-                    <androidx.appcompat.widget.AppCompatSpinner
-                        android:id="@+id/select_city"
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginTop="5dp"
-                        android:background="@drawable/background_border"/>
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="City"
+                            android:layout_marginBottom="15dp"
+                            android:textSize="16sp"
+                            android:id="@+id/f_city"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
                 </LinearLayout>
@@ -156,12 +176,15 @@
                         android:layout_marginTop="5dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="text"
-                            android:hint="Enter Farm Area"
-                            android:id="@+id/farm_area"/>
+                            android:text="Farm Area"
+                            android:layout_marginBottom="15dp"
+                            android:textSize="16sp"
+                            android:id="@+id/f_area"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -174,55 +197,90 @@
                         android:layout_marginTop="5dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="text"
-                            android:hint="Enter Location"
-                            android:id="@+id/farm_location"/>
+                            android:text="Farm Location"
+                            android:layout_marginBottom="15dp"
+                            android:textSize="16sp"
+                            android:id="@+id/f_location"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
 
 
 
-                    <androidx.appcompat.widget.AppCompatSpinner
-                        android:id="@+id/select_crop"
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginTop="5dp"
-                        android:background="@drawable/background_border"/>
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-                    <androidx.appcompat.widget.AppCompatSpinner
-                        android:id="@+id/select_market"
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Crop"
+                            android:layout_marginBottom="15dp"
+                            android:textSize="16sp"
+                            android:id="@+id/s_crop"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginTop="5dp"
-                        android:background="@drawable/background_border"/>
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Market"
+                            android:layout_marginBottom="15dp"
+                            android:textSize="16sp"
+                            android:id="@+id/s_market"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
-
-                    <androidx.appcompat.widget.AppCompatSpinner
-                        android:id="@+id/select_soil"
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginTop="5dp"
-                        android:background="@drawable/background_border"/>
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Soil"
+                            android:layout_marginBottom="15dp"
+                            android:textSize="16sp"
+                            android:id="@+id/s_soil"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/saveBtn"
+                        android:id="@+id/Update"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="15dp"
                         android:background="@drawable/rounded_corner"
-                        android:text="Save"
+                        android:text="Update"
                         android:layout_gravity="center"
                         android:textColor="@color/black"
                         android:textSize="13sp"

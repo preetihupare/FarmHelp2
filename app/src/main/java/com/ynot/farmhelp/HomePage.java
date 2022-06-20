@@ -43,7 +43,7 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(HomePage.this, MyFarm.class);
+                Intent intent = new Intent(HomePage.this, MyData.class);
                 startActivity(intent);
 
 
