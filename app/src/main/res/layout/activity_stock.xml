@@ -32,7 +32,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="250dp"
             android:src="@drawable/stock_img" />
     </LinearLayout>
     <!--my available stock and data-->
@@ -56,7 +56,8 @@
         android:layout_height="120dp"
         android:layout_gravity="center"
         android:background="@drawable/stock_border"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="15dp">
 
         <TextView
             android:layout_width="match_parent"
