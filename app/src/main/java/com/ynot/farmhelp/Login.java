@@ -8,6 +8,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,7 +28,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class Login extends AppCompatActivity {
 
     EditText mEmail,mPassword;
-    Button mLoginBtn;
+    Button mLoginBtn, mPWDLog;
     TextView mCreateBtn,forgotTextLink;
     ProgressBar progressBar;
     FirebaseAuth fAuth;
@@ -46,6 +48,25 @@ public class Login extends AppCompatActivity {
         mLoginBtn = findViewById(R.id.loginBtn);
         mCreateBtn = findViewById(R.id.Signup);
         forgotTextLink = findViewById(R.id.forgotPassword);
+        mPWDLog = findViewById(R.id.showHideBtnLog);
+
+        mPWDLog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                global.hideKeyboard();
+
+                if(mPWDLog.getText().equals("Hide"))
+                {
+                    mPWDLog.setText("Show");
+                    mPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+                else if(mPWDLog.getText().equals("Show"))
+                {
+                    mPWDLog.setText("Hide");
+                    mPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }
+            }
+        });
 
         mCurrentUser = fAuth.getCurrentUser();
         mLoginBtn.setOnClickListener(new View.OnClickListener() {

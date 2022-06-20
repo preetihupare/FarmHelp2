@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -48,7 +50,7 @@ public class Register extends AppCompatActivity {
     String selected_crop, selected_market,selected_city,selected_soil;
 
     EditText mFullName, mEmail, mPassword, mPhone, mFarmArea, mFarmLocation;
-    Button mRegisterBtn;
+    Button mRegisterBtn, mPWD;
     TextView mLoginBtn;
     FirebaseAuth fAuth;
     ProgressBar progressBar;
@@ -68,14 +70,35 @@ public class Register extends AppCompatActivity {
         mFullName   = findViewById(R.id.fullName);
         mEmail      = findViewById(R.id.email);
         mPhone      = findViewById(R.id.phone);
-        mPassword   = findViewById(R.id.password);
+        mPassword   = findViewById(R.id.pwd);
         mFarmArea   = findViewById(R.id.area);
         mFarmLocation = findViewById(R.id.farm_location);
+        mPWD = findViewById(R.id.showHideBtn);
 
         if(fAuth.getCurrentUser() != null){
             startActivity(new Intent(getApplicationContext(), Login.class));
             finish();
         }
+
+
+        mPWD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                global.hideKeyboard();
+
+                if(mPWD.getText().equals("Hide"))
+                {
+                    mPWD.setText("Show");
+                    mPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+                else if(mPWD.getText().equals("Show"))
+                {
+                    mPWD.setText("Hide");
+                    mPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }
+            }
+        });
+
 
         select_crop = (Spinner) findViewById(R.id.select_crop);
         // Initializing a String Array
