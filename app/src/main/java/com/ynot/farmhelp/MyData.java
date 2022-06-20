@@ -45,10 +45,8 @@ public class MyData extends AppCompatActivity {
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userId;
-//    String UpadatedAppLink, GetLinkFromStorage;
-     Button changeProfile;
+    Button changeProfile;
     FirebaseUser user;
-    ImageView profileImage;
     StorageReference storageReference;
 
 //    TextView CoFullNameHead,CoEmailHead,CoCollegeNameHaed;
@@ -85,14 +83,12 @@ public class MyData extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
-
+        userId = fAuth.getCurrentUser().getUid();
+        user = fAuth.getCurrentUser();
 
 //        resendCode = findViewById(R.id.resendCode);
 //        verifyMsg = findViewById(R.id.verifyMsg);
 //        note_verify = findViewById(R.id.note_verify);
-
-        userId = fAuth.getCurrentUser().getUid();
-        user = fAuth.getCurrentUser();
 
 //        if(!user.isEmailVerified() ){
 //            verifyMsg.setVisibility(View.VISIBLE);

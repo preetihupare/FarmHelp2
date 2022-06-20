@@ -29,6 +29,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -39,6 +48,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import javax.annotation.Nullable;
 
 public class Weather extends AppCompatActivity {
 
@@ -55,6 +66,11 @@ public class Weather extends AppCompatActivity {
     private int PERMISSION_CODE = 1;
     private String CityName;
 
+    FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
+    String userId;
+    FirebaseUser user;
+    StorageReference storageReference;
     public Weather() {
     }
 
@@ -81,6 +97,13 @@ public class Weather extends AppCompatActivity {
         background = findViewById(R.id.background);
         tempStatus = findViewById(R.id.tempStatus);
         search = findViewById(R.id.search);
+
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        storageReference = FirebaseStorage.getInstance().getReference();
+        userId = fAuth.getCurrentUser().getUid();
+        user = fAuth.getCurrentUser();
+
         weatherModelArrayList = new ArrayList<>();
         weatherAdapter = new WeatherAdapter(this, weatherModelArrayList);
         //set adapter to recycleView
@@ -89,6 +112,19 @@ public class Weather extends AppCompatActivity {
         loading.setVisibility(View.VISIBLE);
         home.setVisibility(View.GONE);
 
+
+        DocumentReference documentReference = fStore.collection("users").document(userId);
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                if(documentSnapshot.exists()){
+                    cityName.setText(documentSnapshot.getString("city"));
+
+                }else {
+                    Log.d("tag", "onEvent: Data Not Found");
+                }
+            }
+        });
 
         //to fetch live location and to check location access permissions
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -105,8 +141,8 @@ public class Weather extends AppCompatActivity {
 //            CityName = "Kolhapur";
 //
 //        }
-        CityName = "Kolhapur";
-        getWeatherInfo(CityName);
+//        CityName = "Kolhapur";
+        getWeatherInfo(cityName.getText().toString());
 
         //CityName = getCityName(location.getLongitude(), location.getLatitude());
         //getWeatherInfo(CityName);
