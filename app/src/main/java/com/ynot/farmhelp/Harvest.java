@@ -101,6 +101,7 @@ public class Harvest extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItemText = (String) parent.getItemAtPosition(position);
 
+                // editText on click code
                 if ( position == 1 ) {
                     cropImage.setImageResource(images[0]);
                     cropName.setText("Tomato");
