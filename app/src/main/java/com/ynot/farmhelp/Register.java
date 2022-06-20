@@ -238,25 +238,6 @@ public class Register extends AppCompatActivity {
 
         final List<String> marketList = new ArrayList<>(Arrays.asList(list_market));
 
-//        List<String> list_market = new ArrayList<String>();
-//        list_market.add("Select Market");
-//        list_market.add("Kolhapur");
-//        list_market.add("Sangli");
-//        list_market.add("Satara");
-//        ArrayAdapter<String> arrayMarket = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list_market);
-//        arrayMarket.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        select_market.setAdapter(arrayMarket);
-       // select_market.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-//        {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long i) {
-//                select_market.setSelection(position);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
         {
             // Initializing an ArrayAdapter
             final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,R.layout.spinner_item,list_market){
@@ -306,36 +287,6 @@ public class Register extends AppCompatActivity {
                 }
             });
         };
-
-//        selected_market = this.select_market.getSelectedItem().toString();
-
-        ////-------------------------------////
-
-        //Select Soil
-
-//        List<String> list_soil = new ArrayList<String>();
-//        list_soil.add("Select Soil");
-//        list_soil.add("Alluvial Soil");
-//        list_soil.add("Regur or Black Soil");
-//        list_soil.add("Red Soil");
-//        list_soil.add("Laterite Soil");
-//        list_soil.add("Desert Soil");
-//        list_soil.add("Mountain Soil");
-//
-//        ArrayAdapter<String> arraySoil = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list_soil);
-//        arraySoil.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        select_soil.setAdapter(arraySoil);
-//        select_soil.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long i) {
-//                select_soil.setSelection(position);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
 
         select_soil = (Spinner) findViewById(R.id.select_soil);
         // Initializing a String Array
@@ -435,6 +386,12 @@ public class Register extends AppCompatActivity {
                     return;
                 }
 
+                if(fullName.matches(".*\\d.*"))
+                {
+                    mFullName.setError("Full Name contains invalid data");
+                    return;
+                }
+
                 if(TextUtils.isEmpty(email)){
                     mEmail.setError("Email is Required.");
                     return;
@@ -467,10 +424,10 @@ public class Register extends AppCompatActivity {
                     return;
                 }
 
-//                if(farmLocation.isEmpty()){
-//                    mFarmLocation.setError("Farm Location is Required");
-//                    return;
-//                }
+                if(farmLocation.isEmpty()){
+                    mFarmLocation.setError("Farm Location is Required");
+                    return;
+                }
 
                 if(TextUtils.isEmpty(password)){
                     mPassword.setError("Password is Required.");

@@ -11,7 +11,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -142,7 +144,63 @@ public class MyFarm extends AppCompatActivity {
                 if(F_Name.getText().toString().isEmpty() || E_Add.getText().toString().isEmpty() || M_Number.getText().toString().isEmpty() || F_Area.getText().toString().isEmpty() || F_Location.getText().toString().isEmpty()){
                     Snackbar.make(parent_view, "One or many fields are empty.", Snackbar.LENGTH_SHORT).show();
                     return;
+
+//                    final String fullName   = F_Name.getText().toString();
+//                    final String email      = E_Add.getText().toString().trim();
+//                    final String phone      = M_Number.getText().toString();
+//                    final String farmArea  = F_Area.getText().toString();
+//                    final String farmLocation = F_Location.getText().toString();
+//
+//                    if(fullName.isEmpty()){
+//                        F_Name.setError("Full Name is Required");
+//                        return;
+//                    }
+//
+//                    if(fullName.matches(".*\\d.*"))
+//                    {
+//                        F_Name.setError("Full Name contains invalid data");
+//                        return;
+//                    }
+//
+//                    if(TextUtils.isEmpty(email)){
+//                        E_Add.setError("Email is Required.");
+//                        return;
+//                    }
+//
+//                    if(!TextUtils.isEmpty(email)) {
+//                        EditText email1 = (EditText) findViewById(R.id.email);
+//                        if (!Patterns.EMAIL_ADDRESS.matcher(email1.getText().toString()).matches()) {
+//                            E_Add.setError("Invalid Email Address");
+//                            return;
+//                        }
+//                    }
+//
+//
+//                    if(phone.isEmpty()){
+//                        M_Number.setError("Mobile Number is Required");
+//                        return;
+//                    }
+//
+//                    if(!TextUtils.isEmpty(phone)) {
+//                        EditText phone1 = (EditText) findViewById(R.id.phone);
+//                        if (!Patterns.PHONE.matcher(phone1.getText().toString()).matches()) {
+//                            M_Number.setError("Invalid Mobile Number");
+//                            return;
+//                        }
+//                    }
+//
+//                    if(farmArea.isEmpty()){
+//                        F_Area.setError("Farm Area is Required");
+//                        return;
+//                    }
+//
+//                    if(farmLocation.isEmpty()){
+//                        F_Location.setError("Farm Location is Required");
+//                        return;
+//                    }
+
                 }
+
 
                 final String email = E_Add.getText().toString();
                 user.updateEmail(email).addOnSuccessListener(new OnSuccessListener<Void>() {
