@@ -8,21 +8,17 @@ import androidx.browser.customtabs.CustomTabsIntent;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -32,20 +28,15 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.squareup.picasso.Picasso;
 
 import javax.annotation.Nullable;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.view.View;
 
 public class MyData extends AppCompatActivity {
     TextView F_Name, M_Number, E_Add, F_Area, F_Location, F_City, F_Crop, F_Market, F_Soil;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userId;
-    Button changeProfile;
+    Button changeProfile, updatePWD;
     FirebaseUser user;
     StorageReference storageReference;
 
@@ -79,6 +70,8 @@ public class MyData extends AppCompatActivity {
         F_Soil = findViewById(R.id.s_soil);
 
         changeProfile = findViewById(R.id.updateprofileData);
+
+        updatePWD = findViewById(R.id.resetPWD);
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -143,47 +136,47 @@ public class MyData extends AppCompatActivity {
             }
         });
 
-//        resetPassLocal.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                final EditText resetPassword = new EditText(v.getContext());
-//
-//                final AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(v.getContext());
-//                passwordResetDialog.setTitle("Reset Password");
-//                passwordResetDialog.setMessage("Enter new password it must contains at least 6 characters");
-//                passwordResetDialog.setView(resetPassword);
-//
-//                passwordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        // extract the email and send reset link
-//                        String newPassword = resetPassword.getText().toString();
-//                        user.updatePassword(newPassword).addOnSuccessListener(new OnSuccessListener<Void>() {
-//                            @Override
-//                            public void onSuccess(Void aVoid) {
-//                                Toast.makeText(MyAccount.this, "Password Reset Successfully.", Toast.LENGTH_SHORT).show();
-//                            }
-//                        }).addOnFailureListener(new OnFailureListener() {
-//                            @Override
-//                            public void onFailure(@NonNull Exception e) {
-//                                Toast.makeText(MyAccount.this, "Password Reset Failed.", Toast.LENGTH_SHORT).show();
-//                            }
-//                        });
-//                    }
-//                });
-//
-//                passwordResetDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        // close
-//                    }
-//                });
-//
-//                passwordResetDialog.create().show();
-//
-//            }
-//        });
+        updatePWD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final EditText resetPassword = new EditText(v.getContext());
+
+                final AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(v.getContext());
+                passwordResetDialog.setTitle("Reset Password");
+                passwordResetDialog.setMessage("Enter new password it must contains at least 6 characters");
+                passwordResetDialog.setView(resetPassword);
+
+                passwordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // extract the email and send reset link
+                        String newPassword = resetPassword.getText().toString();
+                        user.updatePassword(newPassword).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(MyData.this, "Password Reset Successfully.", Toast.LENGTH_SHORT).show();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(MyData.this, "Password Reset Failed.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                });
+
+                passwordResetDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // close
+                    }
+                });
+
+                passwordResetDialog.create().show();
+
+            }
+        });
 
         changeProfile.setOnClickListener(new View.OnClickListener() {
             @Override

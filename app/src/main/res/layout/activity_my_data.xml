@@ -217,7 +217,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Farm Area"
+                            android:text="Farm Area (Acre)"
                             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                             android:textColor="@color/green_txt"
                             android:textStyle="bold"
@@ -355,19 +355,43 @@
                             android:layout_marginRight="15dp"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/resetPWD"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/rounded_corner"
+                        android:text="Change Password"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:textAllCaps="false"/>
+
+
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/updateprofileData"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
+                        android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginEnd="15dp"
+                        android:layout_marginEnd="20dp"
                         android:background="@drawable/rounded_corner"
                         android:text="Update"
                         android:layout_gravity="center"
                         android:textColor="@color/black"
                         android:textSize="13sp"
-                        android:layout_marginBottom="10dp"/>
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:textAllCaps="false"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
                 </LinearLayout>
             </LinearLayout>

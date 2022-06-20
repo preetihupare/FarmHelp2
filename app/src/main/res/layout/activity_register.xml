@@ -67,7 +67,8 @@
                     android:id="@+id/fullName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Farmer Full Name" />
+                    android:hint="Farmer Full Name"
+                    android:inputType="text"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -81,7 +82,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:inputType="textEmailAddress"
                     android:hint="Enter Email Address"
                     android:id="@+id/email"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -150,7 +151,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="phone"
+                    android:inputType="numberDecimal"
                     android:hint="Enter Farm Area in Acer"
                     android:id="@+id/area"/>
             </com.google.android.material.textfield.TextInputLayout>

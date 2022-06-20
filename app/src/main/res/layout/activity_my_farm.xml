@@ -94,7 +94,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="text"
+                            android:inputType="phone"
                             android:hint="Enter Mobile"
                             android:id="@+id/mobile_number"/>
                     </com.google.android.material.textfield.TextInputLayout>
@@ -112,7 +112,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="text"
+                            android:inputType="textEmailAddress"
                             android:hint="Enter Email Address"
                             android:id="@+id/email_address"/>
                     </com.google.android.material.textfield.TextInputLayout>
@@ -160,8 +160,8 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="text"
-                            android:hint="Enter Farm Area"
+                            android:inputType="numberDecimal"
+                            android:hint="Enter Farm Area (Acre)"
                             android:id="@+id/farm_area"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -182,9 +182,6 @@
                             android:hint="Enter Location"
                             android:id="@+id/farm_location"/>
                     </com.google.android.material.textfield.TextInputLayout>
-
-
-
 
                     <androidx.appcompat.widget.AppCompatSpinner
                         android:id="@+id/m_crop"
