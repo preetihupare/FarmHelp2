@@ -6,12 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -22,19 +24,25 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,39 +58,28 @@ public class MyFarm extends AppCompatActivity {
     FirebaseFirestore fStore;
     FirebaseUser user;
     StorageReference storageReference;
-
     private View parent_view;
-
-    LinearLayout upload, uploadpresentatation;
-    private Intent data;
     ProgressDialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_farm);
-//        getSupportActionBar().setTitle("My Farm");
 
 //        // Here we are initialising the progress dialog box
-//        dialog = new ProgressDialog(this);
-//        dialog.setTitle("File is Selected");
-//        dialog.setMessage("Please Wait...");
+        dialog = new ProgressDialog(this);
 
         parent_view = findViewById(android.R.id.content);
-
         Intent data = getIntent();
         final String fName = data.getStringExtra("fName");
         String email = data.getStringExtra("email");
         String phone = data.getStringExtra("phone");
-
         String area = data.getStringExtra("farmArea");
         String location = data.getStringExtra("farmLocation");
-//        final  String department = data.getStringExtra("department");
-//        final  String learning_year = data.getStringExtra("year");
-//        final String paper_name = data.getStringExtra("PaperName");
-//        String college_name = data.getStringExtra("collegeName");
-
-//        String Paper_URL = data.getStringExtra("Paper_URL");
-//        String Profile_IMG = data.getStringExtra("Profile_IMG");
+        String crop = data.getStringExtra("cropName");
+        String city = data.getStringExtra("city");
+        String market = data.getStringExtra("marketName");
+        String soil = data.getStringExtra("soilName");
 
 
         fAuth = FirebaseAuth.getInstance();
@@ -90,51 +87,55 @@ public class MyFarm extends AppCompatActivity {
         user = fAuth.getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference();
 
-        F_Name = findViewById(R.id.fullName);
+        F_Name = findViewById(R.id.farmer_name);
         M_Number = findViewById(R.id.mobile_number);
         E_Add = findViewById(R.id.email_address);
         F_Area = findViewById(R.id.farm_area);
         F_Location = findViewById(R.id.farm_location);
 
+        F_Crop = (Spinner) findViewById(R.id.m_crop);
+        F_City = (Spinner) findViewById(R.id.m_city);
+        F_Market = (Spinner) findViewById(R.id.m_market);
+        F_Soil = (Spinner) findViewById(R.id.m_soil);
+
+//      FirebaseArrayList
+        String cropValue = crop;
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.list_crop, android.R.layout.simple_spinner_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        F_Crop.setAdapter(adapter1);
+        if (cropValue != null) {
+            int spinnerPosition = adapter1.getPosition(cropValue);
+            F_Crop.setSelection(spinnerPosition);
+        }
+
+        String cityValue = city;
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.list_city, android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        F_City.setAdapter(adapter2);
+        if (cityValue != null) {
+            int spinnerPosition = adapter2.getPosition(cityValue);
+            F_City.setSelection(spinnerPosition);
+        }
+
+        String marketValue = market;
+        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.list_market, android.R.layout.simple_spinner_item);
+        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        F_Market.setAdapter(adapter3);
+        if (marketValue != null) {
+            int spinnerPosition = adapter3.getPosition(marketValue);
+            F_Market.setSelection(spinnerPosition);
+        }
+
+        String soilValue = soil;
+        ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(this, R.array.list_soil, android.R.layout.simple_spinner_item);
+        adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        F_Soil.setAdapter(adapter4);
+        if (soilValue != null) {
+            int spinnerPosition = adapter4.getPosition(soilValue);
+            F_Soil.setSelection(spinnerPosition);
+        }
 
         saveBtn = findViewById(R.id.saveBtn);
-
-//        upload = findViewById(R.id.uploadpdf);
-//        uploadpresentatation = findViewById(R.id.upload_presentation_pdf);
-
-//        profileState = findViewById(R.id.state);
-//        profileCity = findViewById(R.id.district);
-//
-//        profileDepartment = findViewById(R.id.department);
-//        profileYear= findViewById(R.id.year);
-//        profilePaperName= findViewById(R.id.paper_name);
-
-
-//        uploadpresentatation.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getApplicationContext(), "Not Started Yett!!.", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
-//        StorageReference profileRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"/profile.jpg");
-//        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//            @Override
-//            public void onSuccess(Uri uri) {
-//                Picasso.get().load(uri).into(profileImageView);
-//                Profile_IMG = String.valueOf(uri);
-//            }
-//        });
-
-
-//        profileImageView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//                startActivityForResult(openGalleryIntent,1000);
-//            }
-//        });
-
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,23 +152,20 @@ public class MyFarm extends AppCompatActivity {
 
                         DocumentReference docRef = fStore.collection("users").document(user.getUid());
                         Map<String,Object> edited = new HashMap<>();
-                        edited.put("email",E_Add);
+                        edited.put("email",email);
                         edited.put("fName",F_Name.getText().toString());
                         edited.put("phone",M_Number.getText().toString());
-
-//                        edited.put("Paper_URL",result);
                         edited.put("farmArea",F_Area.getText().toString());
                         edited.put("farmLocation",F_Location.getText().toString());
-//                        edited.put("collegeName",profileCollege.getText().toString());
-//                        edited.put("Profile_IMG",Profile_IMG);
-
+                        edited.put("cropName", F_Crop.getSelectedItem().toString());
+                        edited.put("city", F_City.getSelectedItem().toString());
+                        edited.put("marketName", F_Market.getSelectedItem().toString());
+                        edited.put("soilName", F_Soil.getSelectedItem().toString());
 
                         docRef.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                //Toast.makeText(EditProfile.this, "Profile Image Updated", Toast.LENGTH_SHORT).show();
-//                                startActivity(new Intent(getApplicationContext(),my_account.class));
-//                                finish();
+
                             }
                         });
 
@@ -185,7 +183,6 @@ public class MyFarm extends AppCompatActivity {
                         Handler pdCanceller = new Handler();
                         pdCanceller.postDelayed(progressRunnable, 3000);
 
-//                        Snackbar.make(parent_view, "Profile Data Updated Successfully", Snackbar.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -200,68 +197,15 @@ public class MyFarm extends AppCompatActivity {
         E_Add.setText(email);
         F_Name.setText(fName);
         M_Number.setText(phone);
-
-        //profileCollege.setText(college_name);
-
         F_Area.setText(area);
         F_Location.setText(location);
-//        profileDepartment.setText(department);
-//        profileYear.setText(learning_year);
-//        profilePaperName.setText(paper_name);
-
-//        profileCoFullName.setText(CoFullName);
-//        profileCoEmail.setText(CoEmail);
-//        profileCoCollegeName.setText(CoCollegeName);
-
-        Log.d(TAG, "onCreate: " + fName + " " + email + " " + phone+ " " + area + " " + location);
+        F_Crop.setSelection(adapter1.getPosition(cropValue));
+        F_City.setSelection(adapter2.getPosition(cityValue));
+        F_Market.setSelection(adapter3.getPosition(marketValue));
+        F_Soil.setSelection(adapter4.getPosition(soilValue));
 
 
-//        upload.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                Intent i = new Intent(MyFarm.this, TestingActivity.class);
-//                startActivity(i);
-//            }
-//        });
+        Log.d(TAG, "onCreate: " + fName + " " + email + " " + phone+ " " + area + " " + location + " "+ adapter1 + " " + adapter2 + " " + adapter3 + " " + adapter4);
+
     }
-
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @androidx.annotation.Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if(requestCode == 1000){
-//            if(resultCode == Activity.RESULT_OK){
-//                Uri uri = data.getData();
-//
-//                uploadImageToFirebase(uri);
-////                uploadImage(imageUri);
-//
-//            }
-//        }
-//    }
-
-//    private void uploadImageToFirebase(Uri uri) {
-//
-//        StorageReference fileRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"/profile.jpg");
-//        fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//            @Override
-//            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//                    @Override
-//                    public void onSuccess(Uri uri) {
-//                        Picasso.get().load(uri).into(profileImageView);
-//                    }
-//                });
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                Toast.makeText(getApplicationContext(), "Failed.", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//    }
-
-
 }

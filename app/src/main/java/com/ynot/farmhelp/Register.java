@@ -77,29 +77,6 @@ public class Register extends AppCompatActivity {
             finish();
         }
 
-        //Select Crop Spinner
-
-//        List<String> list_crop = new ArrayList<String>();
-//        list_crop.add("Select Crop");
-//        list_crop.add("Tomato");
-//        list_crop.add("Onion");
-//        list_crop.add("Potato");
-//
-//        ArrayAdapter<String> arrayCrop = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list_crop);
-//        arrayCrop.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        select_crop.setAdapter(arrayCrop);
-//        select_crop.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long i) {
-//                select_crop.setSelection(position);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
-
         select_crop = (Spinner) findViewById(R.id.select_crop);
         // Initializing a String Array
         String[] list_crop = new String[]{
@@ -160,32 +137,6 @@ public class Register extends AppCompatActivity {
                 }
             });
         };
-
-//        selected_crop = select_crop.getSelectedItem().toString();
-
-        ////-------------------------------////
-
-        //Select City Spinner
-
-//        List<String> list_city = new ArrayList<String>();
-//        list_city.add("Select City");
-//        list_city.add("Kolhapur");
-//        list_city.add("Sangli");
-//        list_city.add("Satara");
-//        ArrayAdapter<String> arrayCity = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list_city);
-//        arrayCity.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        select_city.setAdapter(arrayCity);
-//        select_city.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long i) {
-//                select_city.setSelection(position);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
 
         select_city  = (Spinner) findViewById(R.id.select_city);
         // Initializing a String Array
@@ -367,12 +318,12 @@ public class Register extends AppCompatActivity {
         // Initializing a String Array
         String[] list_soil = new String[]{
                 "Select Soil",
-                "Alluvial Soil",
-                "Regur or Black Soil",
-                "Red Soil",
-                "Laterite Soil",
-                "Desert Soil",
-                "Mountain Soil"
+                "Alluvial",
+                "Regur",
+                "Red",
+                "Laterite",
+                "Desert",
+                "Mountain"
         };
 
         final List<String> soilList = new ArrayList<>(Arrays.asList(list_soil));

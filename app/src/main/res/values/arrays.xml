@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="list_crop">
+        <item>Select Crop</item>
+        <item>Tomato</item>
+        <item>Onion</item>
+        <item>Potato</item>
+    </string-array>
+
+    <string-array name="list_city">
+        <item>Select City</item>
+        <item>Kolhapur</item>
+        <item>Sangli</item>
+        <item>Satara</item>
+    </string-array>
+
+    <string-array name="list_market">
+        <item>Select Market</item>
+        <item>Kolhapur</item>
+        <item>Sangli</item>
+        <item>Satara</item>
+    </string-array>
+
+    <string-array name="list_soil">
+        <item>Select Soil</item>
+        <item>Alluvial</item>
+        <item>Regur</item>
+        <item>Red</item>
+        <item>Laterite</item>
+        <item>Desert</item>
+        <item>Mountain</item>
+
+    </string-array>
+</resources>

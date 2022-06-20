@@ -27,9 +27,10 @@
                     android:text="My Farm"
                     android:textStyle="bold"
                     android:gravity="center"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="15dp"
                     android:textSize="25dp"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="15dp"/>
 
                 <ImageView
                     android:id="@+id/farmImg"
@@ -118,7 +119,7 @@
 
 
                     <androidx.appcompat.widget.AppCompatSpinner
-                        android:id="@+id/select_city"
+                        android:id="@+id/m_city"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:layout_marginLeft="20dp"
@@ -186,7 +187,7 @@
 
 
                     <androidx.appcompat.widget.AppCompatSpinner
-                        android:id="@+id/select_crop"
+                        android:id="@+id/m_crop"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:layout_marginLeft="20dp"
@@ -195,7 +196,7 @@
                         android:background="@drawable/background_border"/>
 
                     <androidx.appcompat.widget.AppCompatSpinner
-                        android:id="@+id/select_market"
+                        android:id="@+id/m_market"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:layout_marginLeft="20dp"
@@ -206,7 +207,7 @@
 
 
                     <androidx.appcompat.widget.AppCompatSpinner
-                        android:id="@+id/select_soil"
+                        android:id="@+id/m_soil"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:layout_marginLeft="20dp"
