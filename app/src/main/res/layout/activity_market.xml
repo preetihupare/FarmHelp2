@@ -98,7 +98,8 @@
                     android:layout_gravity="center_vertical"
                     android:text="0 Qtls"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:id="@+id/tomato_data"/>
 
             </LinearLayout>
 
@@ -130,9 +131,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:layout_gravity="center_vertical"
-            android:text="200 Qtls"
+            android:text="0 Qtls"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:id="@+id/onion_data"/>
 
     </LinearLayout>
 
@@ -164,10 +166,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:gravity="center"
-            android:text="158 Qtls"
+            android:text="0 Qtls"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_gravity="center_vertical"/>
+            android:layout_gravity="center_vertical"
+            android:id="@+id/potato_data"/>
 
     </LinearLayout>
 
@@ -203,7 +206,8 @@
             android:text="0 Qtls"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_gravity="center_vertical">
+            android:layout_gravity="center_vertical"
+            android:id="@+id/corn_data">
 
         </TextView>
 
