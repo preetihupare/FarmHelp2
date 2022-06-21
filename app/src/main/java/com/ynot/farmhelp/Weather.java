@@ -119,7 +119,9 @@ public class Weather extends AppCompatActivity {
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
                 if(documentSnapshot.exists()){
                     cityName.setText(documentSnapshot.getString("city"));
-
+                    CityName = documentSnapshot.getString("city");
+                    editCity.setText(CityName);
+                    getWeatherInfo(CityName);
                 }else {
                     Log.d("tag", "onEvent: Data Not Found");
                 }
@@ -141,8 +143,9 @@ public class Weather extends AppCompatActivity {
 //            CityName = "Kolhapur";
 //
 //        }
-//        CityName = "Kolhapur";
-        getWeatherInfo(cityName.getText().toString());
+
+//        CityName = "Sangli";
+//        getWeatherInfo(CityName);
 
         //CityName = getCityName(location.getLongitude(), location.getLatitude());
         //getWeatherInfo(CityName);
