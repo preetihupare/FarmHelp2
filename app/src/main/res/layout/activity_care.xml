@@ -20,20 +20,85 @@
             android:text="Care"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="23sp"
+            android:textSize="40dp"
+            android:fontFamily="@font/averia_serif_libre_light"
             android:textStyle="bold" />
         <ImageView
             android:id="@+id/careimage"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_below="@+id/title1"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
 
             android:src="@drawable/care"></ImageView>
 
     </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_row="0"
+        android:layout_rowWeight="1"
+        android:layout_column="0"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="15dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/tomatoim"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/careimage"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+
+            android:src="@drawable/tomato"></ImageView>
+        <ImageView
+            android:id="@+id/onionimg"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/onionimage"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+
+            android:src="@drawable/onion"></ImageView>
+        <ImageView
+            android:id="@+id/potatoimg"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/potatoimage"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+
+            android:src="@drawable/potato"></ImageView>
+        <ImageView
+            android:id="@+id/tomatoimg"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/cornimage"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+
+            android:src="@drawable/corn"></ImageView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>
