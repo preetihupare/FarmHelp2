@@ -15,19 +15,21 @@
         android:visibility="visible"
         android:layout_centerInParent="true" />
 
+    <ScrollView
+        android:id="@+id/Home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
 
     <RelativeLayout
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/Home"
-        android:visibility="visible"
-        >
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/background"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="900dp"
             android:scaleType="centerCrop"
             android:src="@color/black_shade_1" />
 
@@ -140,9 +142,9 @@
             android:layout_height="70dp"
             android:layout_below="@+id/condition"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
-            android:layout_marginBottom="0dp"
+            android:layout_marginBottom="4dp"
             android:orientation="horizontal"
             android:weightSum="4">
 
@@ -214,6 +216,7 @@
                     android:textColor="@color/white"
                     android:textSize="16dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -287,12 +290,12 @@
         <LinearLayout
             android:id="@+id/isRainLayout"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="85dp"
             android:layout_below="@+id/humidityLayout"
             android:layout_marginStart="5dp"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="0dp"
             android:orientation="horizontal"
             android:textAlignment="gravity"
             android:weightSum="4">
@@ -445,82 +448,48 @@
             android:layout_height="25dp"
             android:layout_below="@id/isRainLayout"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Next 5 days"
+            android:layout_marginBottom="5dp"
+            android:text="Next 5 days ( Every 3 hours )"
             android:textAlignment="gravity"
             android:textColor="@color/white"
-            android:textSize="17sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler1"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="140dp"
             android:layout_below="@+id/next5day"
-            android:orientation="vertical"
-            android:weightSum="5">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal"
-                android:layout_weight="1"
-                android:weightSum="4">
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal"
-                android:layout_weight="1"
-                android:weightSum="4">
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal"
-                android:layout_weight="1"
-                android:weightSum="4">
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:weightSum="4">
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal"
-                android:layout_weight="1"
-                android:weightSum="4">
-
-            </LinearLayout>
-
-        </LinearLayout>
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 
         <TextView
+            android:id="@+id/today_forecast"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/recycler1"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:text="Today's Weather Forecast"
-            android:textSize="17sp"
             android:textColor="@color/white"
-            android:textStyle="bold"
-            android:layout_above="@+id/recycler" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:layout_alignParentBottom="true"
+            android:layout_height="150dp"
+            android:layout_below="@+id/today_forecast"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_marginBottom="20dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
@@ -528,6 +497,6 @@
 
     </RelativeLayout>
 
-
+    </ScrollView>
 
 </RelativeLayout>

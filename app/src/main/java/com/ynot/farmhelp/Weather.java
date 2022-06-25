@@ -19,6 +19,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -53,7 +55,7 @@ import javax.annotation.Nullable;
 
 public class Weather extends AppCompatActivity {
 
-    private RelativeLayout home;
+    private ScrollView home;
     private ProgressBar loading;
     private TextView cityName, temperature, condition, humidity, sunrise, sunset, cloud;
     private TextView windSpeed, maxWindSpeed, maxTemp, isRain;
@@ -61,10 +63,13 @@ public class Weather extends AppCompatActivity {
     private ImageView background, search, tempStatus;
     private RecyclerView weather, weather1;
     private ArrayList<WeatherModel> weatherModelArrayList;
+    private ArrayList<WeatherModel1> weatherModelArrayList1;
     private WeatherAdapter weatherAdapter;
+    private WeatherAdapter1 weatherAdapter1;
     private LocationManager locationManager;
     private int PERMISSION_CODE = 1;
     private String CityName;
+    DecimalFormat df = new DecimalFormat("#.#");
 
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
@@ -93,6 +98,7 @@ public class Weather extends AppCompatActivity {
         maxTemp = findViewById(R.id.maxTemp);
         isRain = findViewById(R.id.isRain);
         weather = findViewById(R.id.recycler);
+        weather1 = findViewById(R.id.recycler1);
         editCity = findViewById(R.id.editCity);
         background = findViewById(R.id.background);
         tempStatus = findViewById(R.id.tempStatus);
@@ -109,6 +115,12 @@ public class Weather extends AppCompatActivity {
         //set adapter to recycleView
         weather.setAdapter(weatherAdapter);
 
+        weatherModelArrayList1 = new ArrayList<>();
+        weatherAdapter1 = new WeatherAdapter1(this, weatherModelArrayList1);
+        //set adapter to recycleView
+        weather1.setAdapter(weatherAdapter1);
+
+
         loading.setVisibility(View.VISIBLE);
         home.setVisibility(View.GONE);
 
@@ -122,6 +134,7 @@ public class Weather extends AppCompatActivity {
                     CityName = documentSnapshot.getString("city");
                     editCity.setText(CityName);
                     getWeatherInfo(CityName);
+                    getWeatherInfo2(CityName);
                 }else {
                     Log.d("tag", "onEvent: Data Not Found");
                 }
@@ -162,6 +175,7 @@ public class Weather extends AppCompatActivity {
                 } else {
                     cityName.setText(CityName);
                     getWeatherInfo(city);
+                    getWeatherInfo2(city);
                 }
             }
         });
@@ -239,7 +253,7 @@ public class Weather extends AppCompatActivity {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                loading.setVisibility(View.VISIBLE);
+                loading.setVisibility(View.GONE);
                 home.setVisibility(View.VISIBLE);
                 weatherModelArrayList.clear();
 
@@ -318,5 +332,64 @@ public class Weather extends AppCompatActivity {
         });
 
         requestQueue.add(jsonObjectRequest);
+    }
+
+    public void getWeatherInfo2(String city) {
+        String tempUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=592ed9132bfe8caa35a4d9b7e44c105b";
+
+            RequestQueue requestQueue1 = Volley.newRequestQueue(getApplicationContext());
+            JsonObjectRequest jsonObjectRequest1 = new JsonObjectRequest(Request.Method.GET, tempUrl, null, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+
+                    weatherModelArrayList1.clear();
+                    try {
+                        JSONArray jsonArray = response.getJSONArray("list");
+
+                        for ( int i=2; i<jsonArray.length(); i++ ) {
+                            JSONObject weatherObj = jsonArray.getJSONObject(i);
+                            String date = weatherObj.getString("dt_txt");
+                            JSONObject jsonObjectMain = weatherObj.getJSONObject("main");
+                            String time = date;
+                            double t = jsonObjectMain.getDouble("temp") - 273.15;
+                            String temp = Double.toString(Double.parseDouble(df.format(t)));
+                            JSONArray weatherArray = weatherObj.getJSONArray("weather");
+                            JSONObject jsonObjectWeather = weatherArray.getJSONObject(0);
+                            String description = jsonObjectWeather.getString("description");
+                            String humidity = jsonObjectMain.getString("humidity");
+                            JSONObject jsonObjectClouds = weatherObj.getJSONObject("clouds");
+                            String clouds = jsonObjectClouds.getString("all");
+                            JSONObject jsonObjectWind = weatherObj.getJSONObject("wind");
+                            double s = jsonObjectWind.getDouble("speed");
+                            s *= 3.6;
+                            String wind = Double.toString(Double.parseDouble(df.format(s)));
+                            String main = jsonObjectWeather.getString("main");
+                            String isRain;
+                            if ( main.contains("Rain")) {
+                                isRain = "YES";
+                            }
+                            else {
+                                isRain = "NO";
+                            }
+//                            JSONObject jsonObjectSys = weatherObj.getJSONObject("sys");
+//                            String dayNight = jsonObjectClouds.getString("pod");
+                            weatherModelArrayList1.add(new WeatherModel1(date,time,temp,description,humidity,clouds,wind,isRain));
+                        }
+
+                        weatherAdapter1.notifyDataSetChanged();
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener(){
+
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        requestQueue1.add(jsonObjectRequest1);
     }
 }
