@@ -170,14 +170,14 @@ public class Weather extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String city = editCity.getText().toString();
-                if (city.isEmpty()) {
-                    Toast.makeText(Weather.this, "Please Enter city name", Toast.LENGTH_SHORT).show();
-                } else {
-                    cityName.setText(CityName);
-                    getWeatherInfo(city);
-                    getWeatherInfo2(city);
+                    if (city.isEmpty()) {
+                        Toast.makeText(Weather.this, "Please Enter City Name", Toast.LENGTH_SHORT).show();
+                    } else {
+                        cityName.setText(CityName);
+                        getWeatherInfo(city);
+                        getWeatherInfo2(city);
+                    }
                 }
-            }
         });
     }
 
@@ -327,7 +327,7 @@ public class Weather extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(Weather.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Weather.this, "Please Enter Valid City Name", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -386,7 +386,7 @@ public class Weather extends AppCompatActivity {
 
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "Please Enter Valid City Name", Toast.LENGTH_SHORT).show();
                 }
             });
 
