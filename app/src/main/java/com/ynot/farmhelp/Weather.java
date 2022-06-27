@@ -133,8 +133,13 @@ public class Weather extends AppCompatActivity {
                     cityName.setText(documentSnapshot.getString("city"));
                     CityName = documentSnapshot.getString("city");
                     editCity.setText(CityName);
-                    getWeatherInfo(CityName);
-                    getWeatherInfo2(CityName);
+
+                    try {
+                        getWeatherInfo(CityName);
+                        getWeatherInfo2(CityName);
+                    } catch ( Exception e1 ) {
+                        Toast.makeText(Weather.this, "Please Enter Valid City Name", Toast.LENGTH_SHORT).show();
+                    }
                 }else {
                     Log.d("tag", "onEvent: Data Not Found");
                 }
