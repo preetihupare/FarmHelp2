@@ -29,10 +29,17 @@
         <entry key="..\:/Android project/FarmHelp/app/src/main/res/layout/activity_my_farm.xml" value="0.14285714285714285" />
         <entry key="..\:/Android project/FarmHelp/app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="..\:/Android project/FarmHelp/app/src/main/res/layout/activity_stock.xml" value="0.1" />
-        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_care.xml" value="0.1142857142857143" />
-        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_harvest.xml" value="0.1" />
+        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_care.xml" value="0.10285714285714286" />
+        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_care2.xml" value="0.1" />
+        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_care_o.xml" value="0.1" />
+        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_contact_us.xml" value="0.1" />
+        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_harvest.xml" value="0.25" />
+        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_home_page.xml" value="0.1" />
+        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_market.xml" value="0.1" />
         <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_my_farm.xml" value="0.1" />
+        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_pesticides.xml" value="0.1" />
         <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_stock.xml" value="0.1" />
         <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/drawable-hdpi/card_back.xml" value="0.1325" />
