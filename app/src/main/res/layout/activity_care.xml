@@ -22,10 +22,10 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
+                android:fontFamily="@font/averia_serif_libre_light"
                 android:text="Care"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:fontFamily="@font/averia_serif_libre_light"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -39,7 +39,9 @@
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="18dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/care"></ImageView>
+                android:src="@drawable/care">
+
+            </ImageView>
 
             <GridLayout
                 android:id="@+id/Grid1"
@@ -78,22 +80,22 @@
                             android:layout_height="0dp"
                             android:layout_marginTop="2dp"
                             android:layout_weight="1"
-                            android:text="Care"
+                            android:fontFamily="@font/averia_serif_libre_light"
                             android:gravity="center"
+                            android:text="Care"
                             android:textColor="@android:color/black"
                             android:textSize="22dp"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/averia_serif_libre_light"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:text="Check Information"
+                            android:fontFamily="@font/averia_serif_libre_light"
                             android:gravity="center"
+                            android:text="Check Information"
                             android:textSize="18dp"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/averia_serif_libre_light"/>
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </GridLayout>
@@ -157,12 +159,12 @@
                             android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:layout_weight="3"
+                            android:fontFamily="@font/averia_serif_libre_light"
                             android:gravity="center"
                             android:text="Click Here"
                             android:textColor="#4CAF50"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/averia_serif_libre_light"/>
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -216,12 +218,12 @@
                             android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:layout_weight="3"
+                            android:fontFamily="@font/averia_serif_libre_light"
                             android:gravity="center"
                             android:text="Click Here"
                             android:textColor="#4CAF50"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/averia_serif_libre_light"/>
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -275,12 +277,12 @@
                             android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:layout_weight="3"
+                            android:fontFamily="@font/averia_serif_libre_light"
                             android:gravity="center"
                             android:text="Click Here"
                             android:textColor="#4CAF50"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/averia_serif_libre_light"/>
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -322,11 +324,11 @@
                             android:layout_height="50dp"
                             android:layout_marginLeft="10dp"
                             android:layout_weight="6"
+                            android:fontFamily="@font/averia_serif_libre_light"
                             android:gravity="center_vertical"
                             android:text="Coming Soon..."
                             android:textSize="19dp"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/averia_serif_libre_light"/>
+                            android:textStyle="bold" />
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
