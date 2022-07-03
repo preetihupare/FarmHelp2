@@ -482,6 +482,12 @@ public class Register extends AppCompatActivity {
                             //Date And Time
                             user.put("RegistrationDate",RegistrationDate);
                             user.put("ProfileID",userID);
+                            Map<String, Long> cropData = new HashMap<>();
+                            cropData.put("tomato", 0L);
+                            cropData.put("onion", 0L);
+                            cropData.put("potato", 0L);
+                            cropData.put("corn", 0L);
+                            user.put("cropData", cropData);
 
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
