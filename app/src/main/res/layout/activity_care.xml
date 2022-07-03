@@ -140,16 +140,17 @@
                             android:src="@drawable/tomato" />
 
                         <TextView
+                            android:id="@+id/tomato"
                             android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:layout_marginLeft="10dp"
                             android:layout_weight="3"
+                            android:fontFamily="@font/averia_serif_libre_light"
                             android:gravity="center_vertical"
                             android:text="Tomato"
                             android:textColor="@android:color/black"
                             android:textSize="20dp"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/averia_serif_libre_light"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/t_click"
@@ -198,16 +199,17 @@
                             android:src="@drawable/onion" />
 
                         <TextView
+                            android:id="@+id/onion"
                             android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:layout_marginLeft="10dp"
                             android:layout_weight="3"
+                            android:fontFamily="@font/averia_serif_libre_light"
                             android:gravity="center_vertical"
                             android:text="Onion"
                             android:textColor="@android:color/black"
                             android:textSize="20dp"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/averia_serif_libre_light"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/o_click"
@@ -256,16 +258,17 @@
                             android:src="@drawable/potato" />
 
                         <TextView
+                            android:id="@+id/potato"
                             android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:layout_marginLeft="10dp"
                             android:layout_weight="3"
+                            android:fontFamily="@font/averia_serif_libre_light"
                             android:gravity="center_vertical"
                             android:text="Potato"
                             android:textColor="@android:color/black"
                             android:textSize="20dp"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/averia_serif_libre_light"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/p_click"

@@ -16,14 +16,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FarmHelp">
         <activity
+            android:name=".pesticide2"
+            android:exported="false" />
+        <activity
             android:name=".Care2"
             android:exported="false" />
         <activity
             android:name=".MyData"
-            android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".TestActivity"-->
-<!--            android:exported="false" />-->
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".TestActivity" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".ContactUs"
             android:exported="false" />

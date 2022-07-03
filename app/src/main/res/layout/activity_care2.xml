@@ -1,19 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Care2">
-  <LinearLayout
+    tools:context=".Care2"
+    android:orientation="vertical">
+  <ScrollView
       android:layout_width="match_parent"
       android:layout_height="match_parent">
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+
     <TextView
-        android:id = "@+id/data"
+        android:id="@+id/cropN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crop Name"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:textSize="28dp"
+        android:textStyle="bold" />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:text="Planting"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id = "@+id/carep"
         android:textSize = "20sp"
-        android:layout_width = "wrap_content"
+        android:text="carep"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width = "match_parent"
         android:layout_height = "wrap_content"
         />
 
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:text="Growing"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id = "@+id/careg"
+        android:textSize = "20sp"
+        android:text="careg"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:text="Harvesting"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id = "@+id/careh"
+        android:textSize = "20sp"
+        android:text="careh"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        />
   </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+  </ScrollView>
+</LinearLayout>

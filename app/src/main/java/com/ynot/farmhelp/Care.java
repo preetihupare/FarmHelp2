@@ -30,10 +30,16 @@ public class Care extends AppCompatActivity {
          click_o=findViewById(R.id.o_click);
          click_p=findViewById(R.id.p_click);
 
+         TextView tomato,onion,potato;
+         tomato=findViewById(R.id.tomato);
+         onion=findViewById(R.id.onion);
+         potato=findViewById(R.id.potato);
+
     click_t.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         Intent send = new Intent(Care.this, Care2.class);
+        send.putExtra("cropN", tomato.getText().toString());
         startActivity(send);
     }
     });
@@ -41,6 +47,7 @@ public class Care extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent send = new Intent(Care.this, Care2.class);
+                send.putExtra("cropN", onion.getText().toString());
                 startActivity(send);
             }
         });
@@ -49,6 +56,7 @@ public class Care extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent send = new Intent(Care.this, Care2.class);
+                send.putExtra("cropN", potato.getText().toString());
                 startActivity(send);
             }
         });
