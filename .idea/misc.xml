@@ -12,15 +12,22 @@
         <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/layout/activity_my_farm.xml" value="0.15307971014492755" />
         <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_care.xml" value="0.25" />
+        <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_care2.xml" value="0.13768115942028986" />
+        <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_harvest.xml" value="0.2" />
         <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_home_page.xml" value="0.21784420289855072" />
         <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_login.xml" value="0.10989583333333333" />
         <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_market.xml" value="0.25" />
         <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_my_data.xml" value="0.264" />
         <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_my_farm.xml" value="0.25" />
+        <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_pesticides.xml" value="0.25" />
         <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_register.xml" value="0.2" />
         <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_stock.xml" value="0.264" />
         <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_weather.xml" value="0.25" />
+        <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_web_view.xml" value="0.25" />
         <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/spinner_item.xml" value="0.25" />
+        <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/weather_item.xml" value="0.25" />
+        <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/weather_item2.xml" value="0.25" />
         <entry key="..\:/Android project/FarmHelp/app/src/main/res/drawable/marketborder.xml" value="0.1" />
         <entry key="..\:/Android project/FarmHelp/app/src/main/res/drawable/myfarmborder.xml" value="0.1" />
         <entry key="..\:/Android project/FarmHelp/app/src/main/res/drawable/stock_border.xml" value="0.1" />
@@ -29,21 +36,6 @@
         <entry key="..\:/Android project/FarmHelp/app/src/main/res/layout/activity_my_farm.xml" value="0.14285714285714285" />
         <entry key="..\:/Android project/FarmHelp/app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="..\:/Android project/FarmHelp/app/src/main/res/layout/activity_stock.xml" value="0.1" />
-        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_care.xml" value="0.10285714285714286" />
-        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_care2.xml" value="0.12571428571428572" />
-        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_care_o.xml" value="0.1" />
-        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_contact_us.xml" value="0.1" />
-        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_harvest.xml" value="0.20185922974767595" />
-        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_home_page.xml" value="0.1" />
-        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_login.xml" value="0.1" />
-        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_market.xml" value="0.1" />
-        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_my_farm.xml" value="0.1" />
-        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_pesticide2.xml" value="0.2857142857142857" />
-        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_pesticides.xml" value="0.1" />
-        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_register.xml" value="0.1" />
-        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_stock.xml" value="0.1" />
-        <entry key="..\:/Android project/FarmHelp_miniprj/app/src/main/res/layout/activity_weather.xml" value="0.1" />
         <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/drawable-hdpi/card_back.xml" value="0.1325" />
         <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/drawable-ldpi/background_border.xml" value="0.131" />
         <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/drawable-ldpi/btn_rounded.xml" value="0.131" />
@@ -63,8 +55,6 @@
         <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/layout/activity_stock.xml" value="0.20863616930312098" />
         <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/layout/activity_weather.xml" value="0.18596491228070175" />
         <entry key="..\:/Users/Durvesh Bodkar/AndroidStudioProjects/FarmHelpMiniProject/app/src/main/res/layout/weather_item.xml" value="0.264" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.225" />
-        <entry key="app/src/main/res/layout/activity_stock.xml" value="0.22" />
       </map>
     </option>
   </component>

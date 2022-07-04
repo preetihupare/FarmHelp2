@@ -420,7 +420,7 @@ public class Register extends AppCompatActivity {
                 }
 
                 if(farmArea.isEmpty()){
-                    mFarmArea.setError("Farm Area is Required");
+                    mFarmArea.setError("Farm HarvestArea is Required");
                     return;
                 }
 

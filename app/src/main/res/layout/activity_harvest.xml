@@ -41,7 +41,7 @@
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="10dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/city2"></ImageView>
+                android:src="@drawable/city2" />
 
             <GridLayout
                 android:id="@+id/Grid1"
@@ -96,7 +96,42 @@
                             android:fontFamily="@font/averia_serif_libre_light"
                             android:text="Data Updates in every day"
                             android:textAlignment="center"
-                            android:textSize="18dp" />
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/counterData"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/averia_serif_libre_light"
+                            android:text="Data Updates in every day"
+                            android:textAlignment="center"
+                            android:textSize="18sp"
+                            android:visibility="gone"
+                            tools:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/newdate"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/averia_serif_libre_light"
+                            android:text="date"
+                            android:textAlignment="center"
+                            android:textSize="18sp"
+                            android:visibility="gone"
+                            tools:visibility="gone" />
+
+
+                        <!--                        <TextView-->
+<!--                            android:id="@+id/lastDayofMonth"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="0dp"-->
+<!--                            android:layout_weight="0.8"-->
+<!--                            android:fontFamily="@font/averia_serif_libre_light"-->
+<!--                            android:text="Last Day"-->
+<!--                            android:textAlignment="center"-->
+<!--                            android:textSize="18sp" />-->
 
                         <GridLayout
                             android:id="@+id/Grid2"
@@ -201,7 +236,7 @@
                 <!--      myfarm and market-->
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
-                    android:layout_height="265dp"
+                    android:layout_height="375dp"
                     android:layout_row="0"
                     android:layout_rowWeight="1"
                     android:layout_column="0"
@@ -223,40 +258,33 @@
                         android:layout_marginEnd="8dp"
                         android:layout_marginBottom="8dp"
                         android:gravity="center"
-                        android:orientation="vertical"
-                        android:weightSum="9">
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="3"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
+                            android:layout_height="65dp"
+                            android:orientation="horizontal">
 
-                            <GridLayout
-                                android:id="@+id/Grid4"
-                                android:layout_width="0dp"
-                                android:layout_height="80dp"
-                                android:layout_weight="1"
-                                android:columnCount="1"
-                                android:rowCount="1">
+<!--                            <GridLayout-->
+<!--                                android:id="@+id/Grid4"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="80dp"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:columnCount="1"-->
+<!--                                android:rowCount="1">-->
 
                                 <androidx.cardview.widget.CardView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_row="0"
+                                    android:layout_width="65dp"
+                                    android:layout_height="65dp"
                                     android:layout_rowWeight="1"
-                                    android:layout_column="0"
                                     android:layout_columnWeight="1"
-                                    android:layout_gravity="fill"
+                                    android:layout_gravity="center"
                                     android:layout_marginStart="80dp"
-                                    android:layout_marginTop="5dp"
+                                    android:layout_marginTop="10dp"
                                     android:layout_marginEnd="10dp"
                                     android:layout_marginBottom="12dp"
                                     app:cardCornerRadius="10dp"
-                                    app:cardElevation="10dp"
-
-                                    >
+                                    app:cardElevation="10dp">
 
                                     <ImageView
                                         android:id="@+id/cropImage"
@@ -266,7 +294,7 @@
                                         android:src="@drawable/tomato" />
 
                                 </androidx.cardview.widget.CardView>
-                            </GridLayout>
+<!--                            </GridLayout>-->
 
                             <TextView
                                 android:id="@+id/cropName"
@@ -284,69 +312,163 @@
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
+                            android:layout_height="20dp"
                             android:fontFamily="@font/averia_serif_libre_light"
-                            android:text="Market Demand of Month:"
+                            android:text="Market Demand of Month*"
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
                             android:textSize="20sp"
-                            android:textStyle="bold"></TextView>
+                            android:textStyle="bold"
+                            android:layout_marginTop="8dp"
+                            android:id="@+id/mdm"/>
 
-                        <TextView
-                            android:id="@+id/monthDemand"
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="20dp"
+                                android:layout_weight="1"
+                                android:text="Minimum"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp"
+                                android:textAlignment="center"
+                                android:layout_marginBottom="5dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="20dp"
+                                android:layout_weight="1"
+                                android:text="Maximum"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp"
+                                android:textAlignment="center"
+                                android:layout_marginBottom="5dp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+                        <TextView
+                            android:id="@+id/monthDemandStart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
                             android:layout_weight="1"
-                            android:text="50891/Qtls"
+                            android:text="0"
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
-                            android:textSize="18sp"></TextView>
+                            android:textSize="18sp"
+                            android:layout_marginBottom="5dp"/>
+
+                            <TextView
+                                android:id="@+id/monthDemandEnd"
+                                android:layout_width="wrap_content"
+                                android:layout_height="20dp"
+                                android:layout_weight="1"
+                                android:text="0"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp"
+                                android:textAlignment="center"
+                                android:layout_marginBottom="5dp"/>
+                        </LinearLayout>
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
                             android:fontFamily="@font/averia_serif_libre_light"
-                            android:text="Market Demand for Next Month:"
+                            android:text="Market Demand for Next Month*"
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
                             android:textSize="20sp"
-                            android:textStyle="bold"></TextView>
+                            android:textStyle="bold"
+                            android:layout_marginTop="8dp"
+                            android:id="@+id/mdnm"/>
 
-                        <TextView
-                            android:id="@+id/nextMonthDemand"
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="20dp"
+                                android:layout_weight="1"
+                                android:text="Minimum"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp"
+                                android:textAlignment="center"
+                                android:layout_marginBottom="5dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="20dp"
+                                android:layout_weight="1"
+                                android:text="Maximum"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp"
+                                android:textAlignment="center"
+                                android:layout_marginBottom="5dp"/>
+                        </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+                        <TextView
+                            android:id="@+id/nextMonthDemandStart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
                             android:layout_weight="1"
-                            android:text="42561/Qtls"
+                            android:text="0"
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
-                            android:textSize="18sp"></TextView>
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/nextMonthDemandEnd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:layout_weight="1"
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
+                            android:layout_height="20dp"
                             android:fontFamily="@font/averia_serif_libre_light"
-                            android:text="Remaining Harvest For Next Month:"
+                            android:text="Remaining Harvest For Next Month*"
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
                             android:textSize="19sp"
-                            android:textStyle="bold"></TextView>
+                            android:textStyle="bold"
+                            android:layout_marginTop="8dp"
+                            android:id="@+id/rhnm"/>
 
                         <TextView
                             android:id="@+id/remainingDemand"
                             android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="8330/Qtls"
+                            android:layout_height="20dp"
+                            android:text="0"
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                            android:textSize="18sp"></TextView>
-
-
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Note: All data in *tons \nNext Month maximum value considered for harvesting"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_marginTop="10dp"/>
                     </LinearLayout>
 
 
@@ -421,6 +543,48 @@
                         </LinearLayout>
 
 
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="0dp"-->
+<!--                            android:layout_margin="10dp"-->
+<!--                            android:layout_weight="2"-->
+<!--                            android:background="@drawable/background_border"-->
+<!--                            android:backgroundTint="@color/start_btn"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:weightSum="5">-->
+
+<!--                            <LinearLayout-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:layout_margin="2dp"-->
+<!--                                android:layout_weight="4"-->
+<!--                                android:background="@color/white"-->
+<!--                                android:orientation="horizontal">-->
+
+<!--                                <EditText-->
+<!--                                    android:id="@+id/harvestDate"-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="match_parent"-->
+<!--                                    android:layout_margin="10dp"-->
+<!--                                    android:background="@color/white"-->
+<!--                                    android:gravity="center_vertical"-->
+<!--                                    android:hint="Harvest Date"-->
+<!--                                    android:textSize="16sp" />-->
+<!--                            </LinearLayout>-->
+
+<!--                            <ImageView-->
+<!--                                android:id="@+id/calendarImage"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:layout_centerHorizontal="true"-->
+<!--                                android:layout_margin="12dp"-->
+<!--                                android:layout_weight="1"-->
+
+<!--                                android:src="@drawable/calendar"-->
+
+<!--                                />-->
+<!--                        </LinearLayout>-->
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
@@ -437,59 +601,18 @@
                                 android:layout_margin="2dp"
                                 android:layout_weight="4"
                                 android:background="@color/white"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                android:id="@+id/plantingDateLayout">
 
                                 <EditText
-                                    android:id="@+id/harvestDate"
+                                    android:id="@+id/plantingDate"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_margin="10dp"
                                     android:background="@color/white"
                                     android:gravity="center_vertical"
-                                    android:hint="Harvest Date"
-                                    android:textSize="16sp" />
-                            </LinearLayout>
-
-                            <ImageView
-                                android:id="@+id/calendarImage"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_centerHorizontal="true"
-                                android:layout_margin="12dp"
-                                android:layout_weight="1"
-
-                                android:src="@drawable/calendar"
-
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_margin="10dp"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_border"
-                            android:backgroundTint="@color/start_btn"
-                            android:orientation="horizontal"
-                            android:weightSum="5">
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_margin="2dp"
-                                android:layout_weight="4"
-                                android:background="@color/white"
-                                android:orientation="horizontal">
-
-                                <EditText
-                                    android:id="@+id/expectedDate"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_margin="10dp"
-                                    android:background="@color/white"
-                                    android:gravity="center_vertical"
-                                    android:hint="Expecting Yield Date"
-
+                                    android:hint="Planting Date"
+                                    android:inputType="date"
                                     android:textSize="16sp" />
                             </LinearLayout>
 
@@ -523,14 +646,14 @@
                                 android:orientation="horizontal">
 
                                 <EditText
-                                    android:id="@+id/Area"
+                                    android:id="@+id/HarvestArea"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_margin="10dp"
                                     android:background="@color/white"
                                     android:gravity="center_vertical"
                                     android:hint="Planting Area"
-
+                                    android:inputType="numberDecimal"
                                     android:textSize="16sp" />
                             </LinearLayout>
 
@@ -554,9 +677,9 @@
             </GridLayout>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/logout"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
+                android:id="@+id/submitHarvest"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="15dp"

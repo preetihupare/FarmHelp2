@@ -190,7 +190,7 @@ public class MyFarm extends AppCompatActivity {
 //                    }
 //
 //                    if(farmArea.isEmpty()){
-//                        F_Area.setError("Farm Area is Required");
+//                        F_Area.setError("Farm HarvestArea is Required");
 //                        return;
 //                    }
 //
