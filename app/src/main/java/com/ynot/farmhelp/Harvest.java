@@ -687,5 +687,4 @@ public class Harvest extends AppCompatActivity {
             }
         });
     }
-
 }

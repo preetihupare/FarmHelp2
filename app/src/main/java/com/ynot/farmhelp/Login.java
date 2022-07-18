@@ -199,8 +199,5 @@ public class Login extends AppCompatActivity {
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(homeIntent);
         finish();
-
-
-
     }
 }

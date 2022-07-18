@@ -34,8 +34,6 @@ public class Pesticides extends AppCompatActivity {
         potato=findViewById(R.id.potato);
 
 
-
-
         click_t.setOnClickListener(new View.OnClickListener() {
             @Override
         public void onClick(View v) {

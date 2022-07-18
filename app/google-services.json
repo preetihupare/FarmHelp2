@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "429152983772",
+    "firebase_url": "https://farmhelp-bc29a-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "farmhelp-bc29a",
     "storage_bucket": "farmhelp-bc29a.appspot.com"
   },
@@ -19,6 +20,22 @@
           "android_info": {
             "package_name": "com.ynot.farmhelp",
             "certificate_hash": "54ee6f5dcd2a8807bfeeb78ef5674f8c116b78dc"
+          }
+        },
+        {
+          "client_id": "429152983772-k30a10of27b0s73dlui8mf2hou2s8o39.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ynot.farmhelp",
+            "certificate_hash": "cc8c0f240d27d5170d2beaae3d5a173d53468e93"
+          }
+        },
+        {
+          "client_id": "429152983772-pk8qjr3ajfb7vunpcouip1s8a0g3atpj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ynot.farmhelp",
+            "certificate_hash": "9429c51814d1070e1bcbe0175d625d8e3fc37aca"
           }
         },
         {

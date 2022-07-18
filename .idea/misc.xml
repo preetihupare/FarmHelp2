@@ -14,12 +14,15 @@
         <entry key="..\:/Android Projects/FarmHelp/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_care.xml" value="0.25" />
         <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_care2.xml" value="0.13768115942028986" />
+        <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_contact_us.xml" value="0.25" />
         <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_harvest.xml" value="0.2" />
         <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_home_page.xml" value="0.21784420289855072" />
-        <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_login.xml" value="0.10989583333333333" />
+        <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_login.xml" value="0.2" />
+        <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_market.xml" value="0.25" />
         <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_my_data.xml" value="0.264" />
-        <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_my_farm.xml" value="0.25" />
+        <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_my_farm.xml" value="0.264" />
+        <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_pesticide2.xml" value="0.25" />
         <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_pesticides.xml" value="0.25" />
         <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_register.xml" value="0.2" />
         <entry key="..\:/Android Projects/FarmHelp2/app/src/main/res/layout/activity_stock.xml" value="0.264" />

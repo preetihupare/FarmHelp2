@@ -37,58 +37,45 @@
                     android:layout_height="250dp"
                     android:src="@drawable/stock_img" />
             </LinearLayout>
-            <!--my available stock and data-->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/stock"
-                android:layout_width="370dp"
-                android:layout_height="120dp"
-                android:layout_row="0"
-                android:layout_rowWeight="1"
-                android:layout_column="1"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"
-                android:layout_marginStart="10dp"
-                android:layout_marginBottom="25dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="10dp">
+
+            <LinearLayout
+                android:layout_width="350dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:background="@drawable/marketborder"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="My Available Stock"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="15dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="My Stock Data"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="15dp"/>
 
 
-                <LinearLayout
-                    android:layout_width="400dp"
-                    android:layout_height="120dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/stock_border"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:gravity="center"
-                        android:text="My Available Stock"
-                        android:textSize="25dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:gravity="center"
-
-                        android:text="My Stock Data"
-                        android:textSize="20dp" />
-
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginTop="10dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="350dp"
                     android:layout_height="60dp"
                     android:background="@drawable/stock_border"
                     android:orientation="horizontal">
@@ -97,7 +84,8 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginStart="20dp"
-                        android:src="@drawable/tomato" />
+                        android:src="@drawable/tomato"
+                        android:layout_gravity="center_vertical"/>
 
                     <TextView
                         android:layout_width="100dp"
@@ -105,25 +93,27 @@
                         android:layout_marginStart="25dp"
                         android:gravity="center"
                         android:text="Tomato"
-                        android:textSize="25sp"
-                        android:textStyle="bold" />
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"/>
 
                     <TextView
                         android:id="@+id/tomato"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="100dp"
+                        android:layout_marginStart="80dp"
                         android:gravity="center"
                         android:text="0 Qtls"
                         android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"/>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="350dp"
                     android:layout_height="60dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/stock_border"
                     android:orientation="horizontal">
 
@@ -131,7 +121,8 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginStart="20dp"
-                        android:src="@drawable/onion" />
+                        android:src="@drawable/onion"
+                        android:layout_gravity="center_vertical"/>
 
                     <TextView
                         android:layout_width="100dp"
@@ -139,25 +130,27 @@
                         android:layout_marginStart="25dp"
                         android:gravity="center"
                         android:text="Onion"
-                        android:textSize="25dp"
-                        android:textStyle="bold" />
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"/>
 
                     <TextView
                         android:id="@+id/onion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="110dp"
+                        android:layout_marginStart="80dp"
                         android:gravity="center"
                         android:text="0 Qtls"
                         android:textSize="20dp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"/>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="350dp"
                     android:layout_height="60dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/stock_border"
                     android:orientation="horizontal">
 
@@ -165,7 +158,8 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginStart="20dp"
-                        android:src="@drawable/potato" />
+                        android:src="@drawable/potato"
+                        android:layout_gravity="center_vertical"/>
 
                     <TextView
                         android:layout_width="100dp"
@@ -173,25 +167,27 @@
                         android:layout_marginStart="25dp"
                         android:gravity="center"
                         android:text="Potato"
-                        android:textSize="25dp"
-                        android:textStyle="bold" />
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"/>
 
                     <TextView
                         android:id="@+id/potato"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="105dp"
+                        android:layout_marginStart="80dp"
                         android:gravity="center"
                         android:text="0 Qtls"
                         android:textSize="20dp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"/>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="350dp"
                     android:layout_height="60dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/stock_border"
                     android:orientation="horizontal">
 
@@ -199,7 +195,8 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginStart="20dp"
-                        android:src="@drawable/corn_img" />
+                        android:src="@drawable/corn"
+                        android:layout_gravity="center_vertical"/>
 
                     <TextView
                         android:layout_width="100dp"
@@ -207,25 +204,27 @@
                         android:layout_marginStart="25dp"
                         android:gravity="center"
                         android:text="Corn"
-                        android:textSize="25dp"
-                        android:textStyle="bold" />
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"/>
 
                     <TextView
                         android:id="@+id/corn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="115dp"
+                        android:layout_marginStart="80dp"
                         android:gravity="center"
                         android:text="0 Qtls"
                         android:textSize="20dp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"/>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="350dp"
                     android:layout_height="60dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/stock_border"
                     android:orientation="horizontal">
 
@@ -233,7 +232,8 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginStart="20dp"
-                        android:src="@drawable/all_veg" />
+                        android:src="@drawable/all_veg"
+                        android:layout_gravity="center_vertical"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -241,18 +241,20 @@
                         android:layout_marginStart="25dp"
                         android:gravity="center"
                         android:maxLines="1"
-                        android:text="Comming Soon"
-                        android:textSize="22dp"
-                        android:textStyle="bold" />
+                        android:text="Coming Soon"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="40dp"
+                        android:layout_marginStart="20dp"
                         android:gravity="center"
                         android:text="more...."
                         android:textSize="20dp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"/>
 
                 </LinearLayout>
 

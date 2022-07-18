@@ -47,7 +47,7 @@ public class Register extends AppCompatActivity {
 
     public static final String TAG = "TAG";
     Spinner select_soil, select_crop, select_market, select_city;
-    String selected_crop, selected_market,selected_city,selected_soil;
+//    String selected_crop, selected_market,selected_city,selected_soil;
 
     EditText mFullName, mEmail, mPassword, mPhone, mFarmArea, mFarmLocation;
     Button mRegisterBtn, mPWD;
@@ -57,7 +57,7 @@ public class Register extends AppCompatActivity {
     FirebaseFirestore fStore;
     String userID;
 
-    ImageView profileImageView;
+//    ImageView profileImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -374,7 +374,7 @@ public class Register extends AppCompatActivity {
                 final  String crop_Name = select_crop.getSelectedItem().toString();
                 final  String soilName = select_soil.getSelectedItem().toString();
 
-                String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+//                String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
 
                 //Date And Time
                 Date date = Calendar.getInstance().getTime();
@@ -482,6 +482,7 @@ public class Register extends AppCompatActivity {
                             //Date And Time
                             user.put("RegistrationDate",RegistrationDate);
                             user.put("ProfileID",userID);
+
                             Map<String, Long> cropData = new HashMap<>();
                             cropData.put("tomato", 0L);
                             cropData.put("onion", 0L);

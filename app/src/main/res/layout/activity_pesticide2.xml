@@ -35,17 +35,17 @@
                 android:text="Pesticide Information"
                 android:textSize="22sp"
                 android:textStyle="bold" />
+
             <TextView
-                android:id = "@+id/pestid"
-                android:textSize = "20sp"
-                android:text="pestid"
-                android:layout_marginTop="15dp"
+                android:id="@+id/pestid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="15dp"
-                android:layout_width = "match_parent"
-                android:layout_height = "wrap_content"
-                />
+                android:text="pestid"
+                android:textSize="20sp" />
 
 
             <TextView
